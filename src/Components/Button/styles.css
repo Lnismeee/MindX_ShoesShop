@@ -1,0 +1,17 @@
+.btnAll {
+    height: 35px;
+    width: 100px;
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    font-size: 1.6rem;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+.btnAll:hover {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #ff4d4f;
+    transition: 0.5s;
+    cursor: pointer;
+}

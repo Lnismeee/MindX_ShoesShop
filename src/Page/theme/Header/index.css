@@ -1,0 +1,13 @@
+.header {
+  font-size: 18px;
+  height: 20%;
+  min-height: 3.125em;
+  padding: 5px;
+  background: white;
+  border-top: 0;
+  display: flex;
+  flex-direction: row;
+  width: 1920px;
+  margin: 0 auto;
+  max-width: calc(100% - 5%);
+}

@@ -1,0 +1,120 @@
+* {
+  font-family: Oswald, sans-serif;
+  box-sizing: border-box;
+}
+.card {
+  border: 1px solid #ebebeb;
+  margin: 5px;
+  max-width: 275px;
+  background: #fff;
+  border-radius: 5%;
+  transition: all 0.5s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.img2 {
+  display: none;
+  width: 100%;
+}
+.card:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.card_img {
+  width: 100%;
+}
+.card_img img {
+  width: 100%;
+  aspect-ratio: 1;
+}
+.card span {
+  font-size: 13.6px;
+  color: white;
+  text-align: center;
+  background-color: rgb(255, 51, 0);
+  border: 0px none rgb(255, 255, 255);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: block;
+  z-index: 2;
+  padding: 2.5px 10px;
+  border-radius: 10px;
+}
+.icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon_item {
+  font-size: 16px;
+  z-index: 2;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: snow;
+  border-radius: 10px;
+  transition: all 1s ease 0.1s;
+}
+.icon_item:hover {
+  background-color: tomato;
+  color: white;
+}
+.card:hover .item_hidden {
+  display: block;
+}
+.card:hover .img1 {
+  display: none;
+}
+.card:hover .img2 {
+  display: block;
+}
+.item_hidden {
+  display: none;
+}
+.info1 h2 {
+  font-size: 18px;
+  text-align: center;
+}
+.info1 h2:hover {
+  color: #f25b61;
+}
+.cost {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.cost p {
+  color: #ff3300;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0px 10px 0px 0px;
+  text-align: center;
+}
+.cost del {
+  color: #aaaaaa;
+  display: inline;
+  font-size: 13.6px;
+  line-height: 20.4px;
+  text-align: center;
+}
+.star {
+  text-align: center;
+  color: #ffbe00;
+  margin-bottom: 10px;
+}
+.icon a {
+  color: #000;
+}
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+}

@@ -1,0 +1,16 @@
+.react-slideshow-container .default-nav {
+    display: none;
+}
+.slide-container {
+    max-width: 100%;
+}
+.slide-container img {
+    border-radius: 20px;
+    max-width: 100%;
+    object-fit: contain;
+}
+@media only screen and (max-width: 470px) {
+    .slide-container img {
+        width: 384px;
+    }
+}

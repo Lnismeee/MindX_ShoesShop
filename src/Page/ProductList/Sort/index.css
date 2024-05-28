@@ -1,0 +1,90 @@
+.sort {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.boxfilter {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  min-height: 100%;
+  padding: 3% 3%;
+  transform: translateX(-100%);
+  position: fixed;
+  background-color: white;
+  width: 50%;
+  display: block;
+  animation: fadein linear 0.5s;
+  transition: all linear 0.5s;
+  z-index: 102;
+}
+.sort-right {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.sort-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-filter {
+  display: none;
+}
+.fa-filter:hover {
+  color: aqua;
+}
+@media only screen and (min-width: 416px) and (max-width: 1023px) {
+  .fa-filter {
+    display: block;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .fa-filter {
+    display: block;
+  }
+  .boxfilter {
+    width: 70%;
+    font-size: 14px;
+  }
+}
+.nar-overplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: none;
+  z-index: 100;
+  animation: fadein linear 0.5s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fa-xmark {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  cursor: pointer;
+}
+#filter {
+  display: none;
+}
+#filter:checked ~ .nar-overplay {
+  display: block;
+}
+#filter:checked ~ .boxfilter {
+  transform: translateX(0%);
+}
