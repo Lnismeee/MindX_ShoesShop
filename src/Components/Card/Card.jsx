@@ -1,18 +1,17 @@
 import React from "react";
 import "./index.css";
-import "../../Data/data.json";
+// import "../../Data/data.json";
 const Card = ({ data }) => {
     const {
         name,
-        img_1,
-        img_2,
+        images,
         discount,
         cost,
         old_cost,
         type,
         id,
         barcode,
-        hide = true,
+        hide,
     } = data;
     const tran = (e) => {
         let a = String(e);
@@ -30,6 +29,7 @@ const Card = ({ data }) => {
         return b;
     };
     if (hide == true)
+        // console.log(images?.img_2)
         return (
             <div className="card">
                 <span>{discount}</span>
@@ -45,10 +45,10 @@ const Card = ({ data }) => {
                     </a>
                 </div>
                 <div className="card_img">
-                    <img className="img1" src={img_1} alt="" />
+                    <img className="img1" src={images?.img_1} alt="" />
                     <img
                         className="img2"
-                        src={img_2 == "" ? img_1 : img_2}
+                        src={images?.img_2 == "" ? images?.img_1 : images?.img_2}
                         alt=""
                     />
                 </div>
