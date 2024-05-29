@@ -3,7 +3,10 @@ import Item from "./Item/Item";
 import ItemColor from "./ItemColor/ItemColor";
 import { useEffect } from "react";
 import "./index.css";
+
+
 const Filter = ({ data, setData }) => {
+
   // Khởi tạo các mảng điều kiện
   let count = 0;
   const [none, setNone] = useState(true);
@@ -31,6 +34,7 @@ const Filter = ({ data, setData }) => {
     { name: "Pink", check: false },
     { name: "Yellow", check: false },
   ]);
+
   // Khởi tạo mảng điều type
   let dk = new Set();
   data.forEach((e) => {
@@ -50,23 +54,30 @@ const Filter = ({ data, setData }) => {
     });
     setArrtype([...arrtmp]);
   }, []);
+
   // Xử lý điều kiện type
   useEffect(() => {
-    count = 0;
-    arrtype.forEach((item) => {
-      if (item.check == true) {
-        count += 1;
-        data.forEach((e) => {
-          if (e.type != item.name) e.hide = false;
+    let count = 0;
+    setData((currentData) => {
+        let newData = [...currentData]; // create a new copy of currentData
+        arrtype.forEach((item) => {
+            if (item.check === true) {
+                count += 1;
+                newData = newData.map((e) => {
+                    if (e.type !== item.name) {
+                        return { ...e, hide: false };
+                    }
+                    return e;
+                });
+            }
         });
-      }
+        if (count === 0) {
+            newData = newData.map((e) => ({ ...e, hide: true }));
+        }
+        return newData; // update the state
     });
-    if (count == 0)
-      data.forEach((e) => {
-        e.hide = true;
-      });
-    setData([...data]);
-  }, [arrtype]);
+}, [arrtype]);
+
   // Xử lý điều kiện cost
   useEffect(() => {
     count = 0;
@@ -104,6 +115,7 @@ const Filter = ({ data, setData }) => {
       });
     setData([...data]);
   }, [arrcost]);
+
   // Thay đổi điều kiện khi input thay đổi
   const ChangeDk = (e) => {
     arrtype.forEach((item) => {

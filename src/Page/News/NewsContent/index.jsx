@@ -1,4 +1,3 @@
-import React from "react";
 import "./index.css";
 import newsData from "../../../Data/newsData.json";
 const NewsContent = () => {
