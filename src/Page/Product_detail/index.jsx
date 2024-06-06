@@ -112,7 +112,7 @@ export default function Product_detail() {
         }
 
         <div className="mb-96 mt-10 flex flex-row items-start justify-between gap-7 px-32 py-5">
-          <div className="w-4/5">
+          <div className="w-1/2 h-96">
             <img
               src={imageLink}
               alt="productimgs"
