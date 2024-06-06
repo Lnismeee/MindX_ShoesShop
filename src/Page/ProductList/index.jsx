@@ -28,7 +28,7 @@ const ProductList = () => {
     }
   }, [status]);
 
-  while (status === "loading") {
+  while (status === "pending") {
     return (
       <ReactLoading
         type={"spin"}
