@@ -27,7 +27,7 @@ export default function SignUpForm() {
 
   return (
     <div>
-      <h1 className="mb-5 text-3xl font-bold">Sign Up</h1>
+      <h1 className="mb-8 text-5xl font-bold">Sign Up</h1>
       <Formik
         initialValues={{
           username: "",

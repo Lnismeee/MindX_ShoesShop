@@ -24,8 +24,8 @@ export default function CredentialForm() {
             <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
           </Popsup>
         )}
-        <div className="flex h-screen w-full justify-center bg-gray-100 pt-56">
-          <div className="h-fit w-96 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+        <div className="flex h-screen w-full justify-center bg-gray-100 pt-64">
+          <div className="h-fit w-2/5 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
             <SignInForm />
             <button
               type="button"
@@ -46,8 +46,8 @@ export default function CredentialForm() {
             <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
           </Popsup>
         )}
-        <div className="flex h-screen w-full justify-center pt-40">
-          <div className="h-fit w-96 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
+        <div className="flex h-screen w-full justify-center pt-80">
+          <div className="h-fit w-2/5 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
             <SignUpForm />
             <button
               type="button"
