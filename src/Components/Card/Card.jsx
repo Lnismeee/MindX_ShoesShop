@@ -8,9 +8,9 @@ const Card = ({ data }) => {
         discount,
         cost,
         old_cost,
-        type,
-        id,
-        barcode,
+        // type,
+        // id,
+        // barcode,
         hide,
     } = data;
     const tran = (e) => {
