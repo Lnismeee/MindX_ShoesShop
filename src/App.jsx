@@ -11,6 +11,7 @@ import Login from "./Page/Login";
 import UserPage from "./Page/UserPage";
 import { useDispatch } from "react-redux";
 import { getUserInfo } from "./Store/isLoggedInSlice";
+import Product_detail from "./Page/Product_detail";
 
 function App() {
 
@@ -31,6 +32,10 @@ function App() {
           path="/products"
           element={<ProductList />}
         />
+        <Route
+          path="/products/:id"
+          element={<Product_detail/>}
+        />  
         <Route
           path="/news"
           element={<News />}
