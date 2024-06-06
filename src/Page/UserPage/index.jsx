@@ -1,5 +1,5 @@
 import React from "react";
-import { Logout as RdLgout } from "../../Store/isLoggedInSlice";
+import { Logout } from "../../Store/isLoggedInSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -13,7 +13,7 @@ export default function UserPage() {
   const dispatch = useDispatch();
 
   const logOut = () => {
-    dispatch(RdLgout());
+    dispatch(Logout());
     navigate("/login");
   };
 
@@ -23,6 +23,7 @@ export default function UserPage() {
     } else if (loginState === null) {
       navigate("/login");
     } else {
+      console.log("Login state: ", loginState);
       console.log("Username: ", username);
       console.log("Email: ", email);
       console.log("Phone number: ", phone_number);
@@ -30,7 +31,7 @@ export default function UserPage() {
   }, [loginState, navigate]);
 
   return (
-    <div className="w-screen pt-32 pb-96">
+    <div className="w-screen pt-52 pb-96">
       <div className="ml-10 flex w-fit flex-col items-start justify-center gap-4 rounded-lg border-2 border-gray-300 border-opacity-20 bg-gray-100 p-5 shadow-md">
         <img
           src="https://picsum.photos/200"
