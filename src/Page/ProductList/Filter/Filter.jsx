@@ -4,9 +4,7 @@ import ItemColor from "./ItemColor/ItemColor";
 import { useEffect } from "react";
 import "./index.css";
 
-
 const Filter = ({ data, setData }) => {
-
   // Khởi tạo các mảng điều kiện
   let count = 0;
   const [none, setNone] = useState(true);
@@ -22,10 +20,10 @@ const Filter = ({ data, setData }) => {
   };
   const [arrcost, setArrcost] = useState([
     { name: "Dưới 1.000.000₫", check: false },
-    { name: "Từ 1.000.000₫ - 3.000.000₫", check: false },
+    { name: "Từ 1.000.000₫ - 1.500.000₫", check: false },
+    { name: "Từ 1.500.000₫ - 3.000.000₫", check: false },
     { name: "Từ 3.000.000₫ - 5.000.000₫", check: false },
-    { name: "Từ 5.000.000₫ - 10.000.000₫", check: false },
-    { name: "Trên 10.000.000₫", check: false },
+    { name: "Trên 5.000.000₫", check: false },
   ]);
   const [arrcolor, setArrcolor] = useState([
     { name: "Green", check: false },
@@ -59,24 +57,24 @@ const Filter = ({ data, setData }) => {
   useEffect(() => {
     let count = 0;
     setData((currentData) => {
-        let newData = [...currentData]; // create a new copy of currentData
-        arrtype.forEach((item) => {
-            if (item.check === true) {
-                count += 1;
-                newData = newData.map((e) => {
-                    if (e.type !== item.name) {
-                        return { ...e, hide: false };
-                    }
-                    return e;
-                });
+      let newData = [...currentData]; // create a new copy of currentData
+      arrtype.forEach((item) => {
+        if (item.check === true) {
+          count += 1;
+          newData = newData.map((e) => {
+            if (e.type !== item.name) {
+              return { ...e, hide: false };
             }
-        });
-        if (count === 0) {
-            newData = newData.map((e) => ({ ...e, hide: true }));
+            return e;
+          });
         }
-        return newData; // update the state
+      });
+      if (count === 0) {
+        newData = newData.map((e) => ({ ...e, hide: true }));
+      }
+      return newData; // update the state
     });
-}, [arrtype]);
+  }, [arrtype]);
 
   // Xử lý điều kiện cost
   useEffect(() => {
@@ -91,17 +89,17 @@ const Filter = ({ data, setData }) => {
     }
     if (arrcost[1].check == true) {
       data.forEach((e) => {
-        if (e.cost < 1000000 || e.cost >= 3000000) e.hide = false;
+        if (e.cost < 1000000 || e.cost >= 1500000) e.hide = false;
       });
     }
     if (arrcost[2].check == true) {
       data.forEach((e) => {
-        if (e.cost < 3000000 || e.cost >= 5000000) e.hide = false;
+        if (e.cost < 1500000 || e.cost >= 3000000) e.hide = false;
       });
     }
     if (arrcost[3].check == true) {
       data.forEach((e) => {
-        if (e.cost < 5000000 || e.cost >= 10000000) e.hide = false;
+        if (e.cost < 3000000 || e.cost >= 5000000) e.hide = false;
       });
     }
     if (arrcost[4].check == true) {
@@ -136,8 +134,6 @@ const Filter = ({ data, setData }) => {
         setArrcost([...arrcost]);
       }
     });
-  
-    
   };
   // Render
 
@@ -174,7 +170,7 @@ const Filter = ({ data, setData }) => {
           })}
         </div>
       </div>
-     
+
       <div className="color">
         <h2
           onClick={() => {

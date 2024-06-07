@@ -21,6 +21,6 @@
 }
 .container1 {
   width: 1920px;
-  max-width: calc(100% - 5%);
+  max-width: calc(100% - 15%);
   margin: 0 auto;
 }

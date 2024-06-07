@@ -11,30 +11,26 @@ import ReactLoading from "react-loading";
 
 /**------------------------------------------------------------------------
  *                           main function
-*------------------------------------------------------------------------**/
+ *------------------------------------------------------------------------**/
 const ProductList = () => {
   const dispatch = useDispatch();
   const { products, status } = useSelector((state) => state.products);
   const [data, setData] = useState(data1); // data1 is optional
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
     // setData(products)
   }, [dispatch]);
 
   useEffect(() => {
-    if (status === 'success') {
+    if (status === "success") {
       setData(products);
     }
   }, [status]);
 
   while (status === "pending") {
     return (
-      <ReactLoading
-        type={"spin"}
-        color={"#fc531b"}
-        className="mx-auto mt-10"
-      />
+      <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto mt-10" />
     );
   }
 
@@ -50,20 +46,11 @@ const ProductList = () => {
         <ProductListHeader />
         <div className="container1 product_list ">
           <div className="filter-all">
-            <Filter
-              data={data}
-              setData={setData}
-            />
+            <Filter data={data} setData={setData} />
           </div>
           <div className="product_list_right">
-            <Sort
-              data={data}
-              setData={setData}
-            />
-            <List
-              data={data}
-              setData={setData}
-            />
+            <Sort data={data} setData={setData} />
+            <List data={data} setData={setData} />
           </div>
         </div>
       </div>
