@@ -21,13 +21,13 @@ const Header_right = () => {
       </div>
       <NavLink to="/login">
         {isLoggedIn ? (
-          <BsPersonCircle className="text-3xl text-gray-600" />
+          <BsPersonCircle className="text-xl text-gray-600" />
         ) : (
-          <CiLogin className="text-4xl" />
+          <CiLogin className="text-2xl" />
         )}
       </NavLink>
-      <CiHeart className="text-4xl" />
-      <CiShoppingCart className="text-4xl" />
+      <CiHeart className="text-2xl" />
+      <CiShoppingCart className="text-2xl" />
     </div>
   );
 };

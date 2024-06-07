@@ -46,7 +46,7 @@ export default function CredentialForm() {
             <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
           </Popsup>
         )}
-        <div className="flex h-screen w-full justify-center pt-80">
+        <div className="flex h-screen w-full justify-center pt-40 mb-64">
           <div className="h-fit w-2/5 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-lg">
             <SignUpForm />
             <button
