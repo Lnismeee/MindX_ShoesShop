@@ -94,7 +94,7 @@ export default function Product_detail() {
     const imageLink = product.images.img_2;
 
     return (
-      <div className="h-screen">
+      <div className="h-screen mb-96">
         <div
           className="flex h-96 w-full flex-col items-start justify-between bg-cover bg-no-repeat object-cover object-center px-14 py-36"
           style={{

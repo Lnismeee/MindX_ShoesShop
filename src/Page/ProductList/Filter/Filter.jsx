@@ -4,9 +4,7 @@ import ItemColor from "./ItemColor/ItemColor";
 import { useEffect } from "react";
 import "./index.css";
 
-
 const Filter = ({ data, setData }) => {
-
   // Khởi tạo các mảng điều kiện
   let count = 0;
   const [none, setNone] = useState(true);
@@ -42,6 +40,7 @@ const Filter = ({ data, setData }) => {
   });
   let arrtmp = [];
   const [arrtype, setArrtype] = useState([]);
+
   useEffect(() => {
     dk.forEach((e) => {
       arrtmp.push({ name: e, check: false });
@@ -59,24 +58,24 @@ const Filter = ({ data, setData }) => {
   useEffect(() => {
     let count = 0;
     setData((currentData) => {
-        let newData = [...currentData]; // create a new copy of currentData
-        arrtype.forEach((item) => {
-            if (item.check === true) {
-                count += 1;
-                newData = newData.map((e) => {
-                    if (e.type !== item.name) {
-                        return { ...e, hide: false };
-                    }
-                    return e;
-                });
+      let newData = [...currentData]; // create a new copy of currentData
+      arrtype.forEach((item) => {
+        if (item.check === true) {
+          count += 1;
+          newData = newData.map((e) => {
+            if (e.type !== item.name) {
+              return { ...e, hide: false };
             }
-        });
-        if (count === 0) {
-            newData = newData.map((e) => ({ ...e, hide: true }));
+            return e;
+          });
         }
-        return newData; // update the state
+      });
+      if (count === 0) {
+        newData = newData.map((e) => ({ ...e, hide: true }));
+      }
+      return newData; // update the state
     });
-}, [arrtype]);
+  }, [arrtype]);
 
   // Xử lý điều kiện cost
   useEffect(() => {
@@ -136,24 +135,26 @@ const Filter = ({ data, setData }) => {
         setArrcost([...arrcost]);
       }
     });
-  
-    
   };
-  // Render
+  
+  /*------------------------------------------------------------------------------------------------*/
 
+  // Render
   return (
     <div className="filter">
       <div className="brand">
         <h2
           onClick={() => {
             setNone(!none);
-          }}
-        >
+          }}>
           Thương hiệu sản phẩm
         </h2>
         <div className={setclassName(none)}>
           <div>
-            <input type="checkbox" id="thsp" />
+            <input
+              type="checkbox"
+              id="thsp"
+            />
             <label htmlFor="thsp"> Shoes Babies</label>
           </div>
         </div>
@@ -162,25 +163,28 @@ const Filter = ({ data, setData }) => {
         <h2
           onClick={() => {
             setNone1(!none1);
-          }}
-        >
+          }}>
           Loại sản phẩm
         </h2>
         <div className={setclassName(none1)}>
           {arrtype.map((item, index) => {
             return (
-              <Item data={item} key={index} id={index} ChangeDk={ChangeDk} />
+              <Item
+                data={item}
+                key={index}
+                id={index}
+                ChangeDk={ChangeDk}
+              />
             );
           })}
         </div>
       </div>
-     
+
       <div className="color">
         <h2
           onClick={() => {
             setNone3(!none3);
-          }}
-        >
+          }}>
           Màu sắc
         </h2>
         <div className={setclassName(none3)}>
@@ -200,8 +204,7 @@ const Filter = ({ data, setData }) => {
         <h2
           onClick={() => {
             setNone4(!none4);
-          }}
-        >
+          }}>
           Giá sản phẩm
         </h2>
         <div className={setclassName(none4)}>
