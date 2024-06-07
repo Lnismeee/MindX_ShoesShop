@@ -3,13 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    font-family: Oswald, sans-serif;
-}
-html {
-    font-size: 62.5%;
+    /* font-family: Oswald, sans-serif; */
 }
 body {
-    font-size: 1.6rem;
+    font-size: 1rem;
 }
 a {
     text-decoration: none;
