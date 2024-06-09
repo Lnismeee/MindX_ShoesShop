@@ -18,7 +18,11 @@ const ProductList = () => {
   const [data, setData] = useState(data1); // data1 is optional
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    if (products.length === 0) {
+      dispatch(fetchProducts());
+    } else {
+      setData(products);
+    }
     console.log(status);
     // setData(products)
   }, [dispatch]);
