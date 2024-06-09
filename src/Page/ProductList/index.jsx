@@ -19,6 +19,7 @@ const ProductList = () => {
   
   useEffect(() => {
     dispatch(fetchProducts());
+    console.log(status);
     // setData(products)
   }, [dispatch]);
 
@@ -28,12 +29,12 @@ const ProductList = () => {
     }
   }, [status]);
 
-  while (status === "pending") {
+  while (status === "loading") {
     return (
       <ReactLoading
         type={"spin"}
         color={"#fc531b"}
-        className="mx-auto mt-10"
+        className="mx-auto mt-10 pt-56"
       />
     );
   }
