@@ -40,6 +40,7 @@ const Filter = ({ data, setData }) => {
   });
   let arrtmp = [];
   const [arrtype, setArrtype] = useState([]);
+
   useEffect(() => {
     dk.forEach((e) => {
       arrtmp.push({ name: e, check: false });
@@ -135,21 +136,25 @@ const Filter = ({ data, setData }) => {
       }
     });
   };
-  // Render
+  
+  /*------------------------------------------------------------------------------------------------*/
 
+  // Render
   return (
     <div className="filter">
       <div className="brand">
         <h2
           onClick={() => {
             setNone(!none);
-          }}
-        >
+          }}>
           Thương hiệu sản phẩm
         </h2>
         <div className={setclassName(none)}>
           <div>
-            <input type="checkbox" id="thsp" />
+            <input
+              type="checkbox"
+              id="thsp"
+            />
             <label htmlFor="thsp"> Shoes Babies</label>
           </div>
         </div>
@@ -158,14 +163,18 @@ const Filter = ({ data, setData }) => {
         <h2
           onClick={() => {
             setNone1(!none1);
-          }}
-        >
+          }}>
           Loại sản phẩm
         </h2>
         <div className={setclassName(none1)}>
           {arrtype.map((item, index) => {
             return (
-              <Item data={item} key={index} id={index} ChangeDk={ChangeDk} />
+              <Item
+                data={item}
+                key={index}
+                id={index}
+                ChangeDk={ChangeDk}
+              />
             );
           })}
         </div>
@@ -175,8 +184,7 @@ const Filter = ({ data, setData }) => {
         <h2
           onClick={() => {
             setNone3(!none3);
-          }}
-        >
+          }}>
           Màu sắc
         </h2>
         <div className={setclassName(none3)}>
@@ -196,8 +204,7 @@ const Filter = ({ data, setData }) => {
         <h2
           onClick={() => {
             setNone4(!none4);
-          }}
-        >
+          }}>
           Giá sản phẩm
         </h2>
         <div className={setclassName(none4)}>

@@ -85,7 +85,11 @@ export default function Product_detail() {
 
   while (status === "loading") {
     return (
-      <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto pt-48" />
+      <ReactLoading
+        type={"spin"}
+        color={"#fc531b"}
+        className="mx-auto pt-48"
+      />
     );
   }
 
@@ -94,13 +98,12 @@ export default function Product_detail() {
     const imageLink = product.images.img_2;
 
     return (
-      <div className="h-screen">
+      <div className="h-screen mb-96">
         <div
           className="flex h-96 w-full flex-col items-start justify-between bg-cover bg-no-repeat object-cover object-center px-14 py-36"
           style={{
             backgroundImage: `url("https://bizweb.dktcdn.net/100/493/370/themes/940719/assets/main_product_breadcrumb_bg.jpg?1713464283843")`,
-          }}
-        >
+          }}>
           <p className="text-4xl font-bold">Chuck Taylor All Star Classic</p>
           <p className="text-lg font-light italic text-gray-500">
             Trang chủ / CONVERSE ALL Chuck Taylor / All Star Classic
@@ -135,15 +138,13 @@ export default function Product_detail() {
                 <div className="flex flex-row items-center gap-5 rounded-md p-2 ring-1 ring-gray-700 ring-opacity-15">
                   <button
                     className="h-8 w-8 rounded-md bg-gray-300"
-                    onClick={() => handleQuantity("decrease")}
-                  >
+                    onClick={() => handleQuantity("decrease")}>
                     -
                   </button>
                   <span>{quantity}</span>
                   <button
                     className="h-8 w-8 rounded-md bg-gray-300"
-                    onClick={() => handleQuantity("increase")}
-                  >
+                    onClick={() => handleQuantity("increase")}>
                     +
                   </button>
                 </div>
@@ -152,8 +153,7 @@ export default function Product_detail() {
             <div className="flex w-full flex-row justify-between gap-3 pt-5">
               <button
                 className="h-12 w-1/2 rounded-md bg-orange-600 font-bold text-white"
-                onClick={handleAddToCart}
-              >
+                onClick={handleAddToCart}>
                 Thêm vào giỏ
               </button>
               <ToastContainer />

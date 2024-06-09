@@ -13,21 +13,17 @@ const Footer = () => {
               />
             </a>
             <div className="column1">
-              <i className="fa-solid fa-location-dot footer__icon"></i>
               <p className="footer__desc">
                 188 Trường Chinh, P.Khương Thượng, Q.Đống Đa, Hà Nội
               </p>
             </div>
             <div className="column1">
-              <i className="fa-solid fa-phone footer__icon"></i>
               <p className="footer__desc">1900868623</p>
             </div>
             <div className="column1">
-              <i className="fa-regular fa-envelope footer__icon"></i>
               <p className="footer__desc">ShoesShop@gmail.com</p>
             </div>
             <div className="column1">
-              <i className="fa-regular fa-clock footer__icon"></i>
               <p className="footer__desc">
                 08:00 - 17:00 Thứ 2 - Thứ 6 <br />
                 08:00 - 12:00 Thứ 7
