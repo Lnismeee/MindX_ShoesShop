@@ -1,9 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { orderProduct } from "../../Store/cartChecker";
+import { useSelector, useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export default function CheckoutForm() {
+  const userId = useSelector((state) => state.isLoggedIn.userId);
+  const cart = useSelector((state) => state.cartChecker.cart);
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
   const phone_number = useSelector((state) => state.isLoggedIn.phone_number);
@@ -18,6 +21,8 @@ export default function CheckoutForm() {
     address: Yup.string().required("* Required"),
   });
 
+  const dispatch = useDispatch();
+
   return (
     <div className="flex h-full w-full flex-col items-start">
       <h1 className="mb-3 text-3xl font-bold">Checkout</h1>
@@ -26,7 +31,15 @@ export default function CheckoutForm() {
         initialValues={{ name: username, email: email, phone_number: phone_number, address: "" }}
         validationSchema={checkoutSchema}
         onSubmit={(values) => {
-          console.log(values);
+          const orderingSubmission = {
+            userId: userId,
+            name: values.name,
+            email: values.email,
+            phone: values.phone_number,
+            address: values.address,
+            items: cart,
+          };
+          dispatch(orderProduct(orderingSubmission));
         }}
       >
         <Form className="flex h-full w-full flex-col justify-between gap-3">
