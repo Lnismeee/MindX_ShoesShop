@@ -12,11 +12,11 @@ const Header_right = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn.isLoggedIn);
   const cart = useSelector((state) => state.cartChecker.cart);
   return (
-    <div className="flex flex-row justify-between items-center gap-10">
-      <div className="flex flex-row border-gray-500 border-opacity-30 border-2 py-2 px-5 rounded-xl">
+    <div className="hidden flex-row items-center justify-between gap-10 lg:flex">
+      <div className="flex flex-row rounded-xl border-2 border-gray-500 border-opacity-30 px-5 py-2">
         <input
           type="text"
-          className="rounded-lg mr-5 focus:outline-none"
+          className="mr-5 rounded-lg focus:outline-none"
           placeholder="Tìm kiếm"
         />
       </div>
@@ -31,7 +31,7 @@ const Header_right = () => {
       <NavLink to="/cart">
         {cart.length > 0 ? (
           <MdShoppingCartCheckout className="text-2xl" />
-          ) : (
+        ) : (
           <CiShoppingCart className="text-2xl" />
         )}
       </NavLink>
