@@ -1,4 +1,5 @@
 import React from "react";
+import { IoMdArrowBack } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CheckoutForm from "../../Components/CheckoutForm";
@@ -63,17 +64,32 @@ export default function Checkout() {
       }
     });
   };
-
+  /*------------------------------------------------------------------------------------------------*/
+  
+  
   return (
     <div className="py-56">
       <div className="flex h-fit w-full flex-col items-start justify-center lg:flex-row">
-        <div className="flex flex-col items-end w-1/2">
-          <div className="flex h-96 w-full flex-col divide-y-2 overflow-scroll rounded-md border-2 px-5 py-3 mb-3">
+        <div className="flex w-1/2 flex-col items-end">
+          <div className="mb-3 flex h-96 w-full flex-col divide-y-2 overflow-scroll rounded-md border-2 px-5 py-3">
             {renderCart()}
           </div>
-          <p className="text-lg pr-4 text-gray-600">total price: {totalPrice.toLocaleString()} đ</p>
+          <div className="flex w-full flex-row items-center justify-between">
+            <button
+              onClick={() => navigate("/cart")}
+              className="flex flex-row items-center gap-2 rounded-md bg-gray-200 px-3 py-1 transition duration-200 hover:bg-gray-300"
+            >
+              <span>
+                <IoMdArrowBack />
+              </span>
+              <span className="text-sm">Back to cart</span>
+            </button>
+            <p className="pr-4 text-lg text-gray-600">
+              total price: {totalPrice.toLocaleString()} đ
+            </p>
+          </div>
         </div>
-        <div className="h-96 w-2/6 ml-5">
+        <div className="ml-7 h-96 w-2/6">
           <CheckoutForm />
         </div>
       </div>

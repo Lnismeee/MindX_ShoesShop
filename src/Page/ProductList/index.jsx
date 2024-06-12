@@ -38,7 +38,7 @@ const ProductList = () => {
       <ReactLoading
         type={"spin"}
         color={"#fc531b"}
-        className="mx-auto mt-10 pt-56"
+        className="mx-auto pt-56"
       />
     );
   }
