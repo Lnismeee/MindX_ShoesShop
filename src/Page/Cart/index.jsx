@@ -103,7 +103,7 @@ export default function Cart() {
                     <div
                       className="flex h-auto w-3/4 flex-row items-center justify-end gap-7"
                       onClick={() =>
-                        navigate(`/converseall/product/${product._id}`)
+                        navigate(`/products/${product._id}`)
                       }
                     >
                       <p className="text-right font-bold text-gray-600">
