@@ -12,4 +12,5 @@
   width: 1920px;
   max-width: calc(100% - 20%);
   margin: 0 auto;
+  font-size: 6rem;
 }

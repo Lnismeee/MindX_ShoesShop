@@ -5,14 +5,14 @@
 .card {
   border: 1px solid #ebebeb;
   margin: 5px;
-  max-width: 275px;
+  max-width: 230px;
   background: #fff;
   border-radius: 5%;
   transition: all 0.5s;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  justify-content: space-around;
 }
 .img2 {
   display: none;

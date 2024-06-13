@@ -12,6 +12,8 @@ import UserPage from "./Page/UserPage";
 import { useDispatch } from "react-redux";
 import { getUserInfo } from "./Store/isLoggedInSlice";
 import Product_detail from "./Page/Product_detail";
+import Home from "./Page/Home/Home";
+import NewsDetail from "./Page/NewsDetail/NewsDetail";
 
 function App() {
   const accessToken = localStorage.getItem("accessToken");
@@ -27,12 +29,14 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<Product_detail />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login/user" element={<UserPage />} />
+        <Route path="/news/detail" element={<NewsDetail />} />
       </Routes>
       <Example1></Example1>
       <Footer />

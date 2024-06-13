@@ -12,61 +12,10 @@
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .container-form {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .form-map-container {
-    flex-direction: column;
-  }
-
-  .form-container {
-    width: 100%;
-    order: 2;
-  }
-
-  .map-container {
-    order: 1;
-    height: 300px;
-  }
-
-  .contact-image {
-    max-width: 100%; /* Adjust the max-width as needed */
-    height: auto;
-  }
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .image img {
-    height: auto;
-    width: 60%;
-  }
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .form-map-container {
-    flex-direction: column;
-  }
-
-  .form-container {
-    order: 1;
-  }
-
-  .map-container {
-    order: 2;
-    height: 300px;
-  }
-}
-
 .contact-heading {
   color: #f25e63;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 /*  */
@@ -74,6 +23,7 @@
   flex-shrink: 0;
   padding-left: 20px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .image img {
@@ -134,4 +84,66 @@
 .form-button:hover {
   border-style: 1px solid #2e3192;
   background-color: #ffffff;
+}
+.image {
+  width: 30%;
+}
+@media (max-width: 768px) {
+  .container-form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .form-map-container {
+    flex-direction: column;
+  }
+
+  .form-container {
+    width: 100%;
+    order: 2;
+  }
+
+  .map-container {
+    order: 1;
+    height: 300px;
+  }
+
+  .contact-image {
+    max-width: 100%; /* Adjust the max-width as needed */
+    height: auto;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .form-map-container {
+    flex-direction: column;
+  }
+
+  .form-container {
+    order: 1;
+  }
+
+  .map-container {
+    order: 2;
+    height: 300px;
+  }
+  .contact_top1 {
+    display: block;
+  }
+  .image:first-child {
+    width: 100%;
+  }
+  .image:nth-child(2) {
+    display: none;
+  }
+  .contact_top {
+    margin-top: 30px;
+  }
 }

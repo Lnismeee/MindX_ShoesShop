@@ -10,6 +10,7 @@ const Item = ({ data, ChangeDk, id }) => {
         onClick={() => {
           ChangeDk(data.name);
         }}
+        style={{ transform: "scale(1.5)", marginRight: "10px" }}
       />
       <label htmlFor={id}>{data.name}</label>
     </div>

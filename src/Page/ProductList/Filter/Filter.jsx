@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Item from "./Item/Item";
-import ItemColor from "./ItemColor/ItemColor";
 import { useEffect } from "react";
 import "./index.css";
 
@@ -12,34 +11,22 @@ const Filter = ({ data, setData }) => {
   const [none2, setNone2] = useState(true);
   const [none3, setNone3] = useState(true);
   const [none4, setNone4] = useState(true);
-  const [none5, setNone5] = useState(true);
 
   const setclassName = (e) => {
     if (e == true) return "list-filter block";
     else return "list-filter none";
   };
-  const [arrcost, setArrcost] = useState([
-    { name: "Dưới 1.000.000₫", check: false },
-    { name: "Từ 1.000.000₫ - 1.500.000₫", check: false },
-    { name: "Từ 1.500.000₫ - 3.000.000₫", check: false },
-    { name: "Từ 3.000.000₫ - 5.000.000₫", check: false },
-    { name: "Trên 5.000.000₫", check: false },
-  ]);
-  const [arrcolor, setArrcolor] = useState([
-    { name: "Green", check: false },
-    { name: "Red", check: false },
-    { name: "Black", check: false },
-    { name: "Pink", check: false },
-    { name: "Yellow", check: false },
-  ]);
-
   // Khởi tạo mảng điều type
   let dk = new Set();
   data.forEach((e) => {
     dk.add(e.type);
   });
   let arrtmp = [];
-  const [arrtype, setArrtype] = useState([]);
+  const [arrtype, setArrtype] = useState([
+    { name: "High", check: false },
+    { name: "Low", check: false },
+  ]);
+
   useEffect(() => {
     dk.forEach((e) => {
       arrtmp.push({ name: e, check: false });
@@ -76,6 +63,13 @@ const Filter = ({ data, setData }) => {
     });
   }, [arrtype]);
 
+  const [arrcost, setArrcost] = useState([
+    { name: "Dưới 1.000.000₫", check: false },
+    { name: "Từ 1.000.000₫ - 1.500.000₫", check: false },
+    { name: "Từ 1.500.000₫ - 3.000.000₫", check: false },
+    { name: "Từ 3.000.000₫ - 5.000.000₫", check: false },
+    { name: "Trên 5.000.000₫", check: false },
+  ]);
   // Xử lý điều kiện cost
   useEffect(() => {
     count = 0;
@@ -122,12 +116,7 @@ const Filter = ({ data, setData }) => {
         setArrtype([...arrtype]);
       }
     });
-    arrcolor.forEach((item) => {
-      if (item.name == e) {
-        item.check = !item.check;
-        setArrcolor([...arrcolor]);
-      }
-    });
+
     arrcost.forEach((item) => {
       if (item.name == e) {
         item.check = !item.check;
@@ -148,8 +137,12 @@ const Filter = ({ data, setData }) => {
           Thương hiệu sản phẩm
         </h2>
         <div className={setclassName(none)}>
-          <div>
-            <input type="checkbox" id="thsp" />
+          <div className="brand1">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1334/1334205.png"
+              alt=""
+              className="N-icon"
+            />
             <label htmlFor="thsp"> Shoes Babies</label>
           </div>
         </div>
@@ -171,27 +164,6 @@ const Filter = ({ data, setData }) => {
         </div>
       </div>
 
-      <div className="color">
-        <h2
-          onClick={() => {
-            setNone3(!none3);
-          }}
-        >
-          Màu sắc
-        </h2>
-        <div className={setclassName(none3)}>
-          {arrcolor.map((item, index) => {
-            return (
-              <ItemColor
-                data={item}
-                id={index + 200}
-                key={index + 200}
-                ChangeDk={ChangeDk}
-              />
-            );
-          })}
-        </div>
-      </div>
       <div className="fil_cost">
         <h2
           onClick={() => {

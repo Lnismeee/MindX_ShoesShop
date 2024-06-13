@@ -25,10 +25,16 @@
   padding-bottom: 10px;
   border-bottom: solid rgb(161, 159, 159) 1px;
 }
+.fil_cost div,
+.type div {
+  margin-bottom: 5px;
+}
+
 .list-filter {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-size: 16px;
 }
 .size {
   display: flex;
@@ -73,6 +79,18 @@
     display: flex;
   }
 }
-h2 {
-  font-size: 1.8rem;
+
+.brand1 {
+  display: flex;
+  align-items: center;
+}
+.list-filter {
+  cursor: pointer;
+}
+.type h2,
+.fil_cost h2,
+.brand h2 {
+  font-size: 30px;
+  padding: 5px;
+  color: lightcoral;
 }
