@@ -1,6 +1,7 @@
 .PLHeader {
+  padding-top: 100px;
   width: 100%;
-  height: 35vh;
+  height: 50vh;
   background-image: url("https://bizweb.dktcdn.net/100/493/370/themes/940719/assets/main_collection_breadcrumb_bg.jpg?1713464283843");
   background-position: center;
   display: flex;

@@ -124,8 +124,10 @@ const Filter = ({ data, setData }) => {
       }
     });
   };
-  // Render
 
+  /*------------------------------------------------------------------------------------------------*/
+
+  // Render
   return (
     <div className="filter">
       <div className="brand">
@@ -143,46 +145,70 @@ const Filter = ({ data, setData }) => {
               alt=""
               className="N-icon"
             />
-            <label htmlFor="thsp"> Shoes Babies</label>
+            <div>
+              <input type="checkbox" id="thsp" />
+              <label htmlFor="thsp"> Shoes Babies</label>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="type">
-        <h2
-          onClick={() => {
-            setNone1(!none1);
-          }}
-        >
-          Loại sản phẩm
-        </h2>
-        <div className={setclassName(none1)}>
-          {arrtype.map((item, index) => {
-            return (
-              <Item data={item} key={index} id={index} ChangeDk={ChangeDk} />
-            );
-          })}
+        <div className="type">
+          <h2
+            onClick={() => {
+              setNone1(!none1);
+            }}
+          >
+            Loại sản phẩm
+          </h2>
+          <div className={setclassName(none1)}>
+            {arrtype.map((item, index) => {
+              return (
+                <Item data={item} key={index} id={index} ChangeDk={ChangeDk} />
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      <div className="fil_cost">
-        <h2
-          onClick={() => {
-            setNone4(!none4);
-          }}
-        >
-          Giá sản phẩm
-        </h2>
-        <div className={setclassName(none4)}>
-          {arrcost.map((item, index) => {
-            return (
-              <Item
-                data={item}
-                id={index + 300}
-                key={index + 300}
-                ChangeDk={ChangeDk}
-              />
-            );
-          })}
+        <div className="color">
+          <h2
+            onClick={() => {
+              setNone3(!none3);
+            }}
+          >
+            Màu sắc
+          </h2>
+          <div className={setclassName(none3)}>
+            {arrcolor.map((item, index) => {
+              return (
+                <ItemColor
+                  data={item}
+                  id={index + 200}
+                  key={index + 200}
+                  ChangeDk={ChangeDk}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div className="fil_cost">
+          <h2
+            onClick={() => {
+              setNone4(!none4);
+            }}
+          >
+            Giá sản phẩm
+          </h2>
+          <div className={setclassName(none4)}>
+            {arrcost.map((item, index) => {
+              return (
+                <Item
+                  data={item}
+                  id={index + 300}
+                  key={index + 300}
+                  ChangeDk={ChangeDk}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
