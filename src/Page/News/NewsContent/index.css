@@ -175,4 +175,15 @@
   .N-container {
     grid-template-columns: 1fr;
   }
+  .newsGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .N-title,
+  .N-desc-r {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

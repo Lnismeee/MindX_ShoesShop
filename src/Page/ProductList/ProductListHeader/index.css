@@ -17,3 +17,12 @@
 .PLHeader p {
   font-size: 3rem;
 }
+@media only screen and (max-width: 766px) {
+  .PLHeader h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .PLHeader p {
+    font-size: 1.8rem;
+  }
+}

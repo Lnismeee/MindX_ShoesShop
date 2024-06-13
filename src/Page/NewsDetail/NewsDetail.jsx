@@ -9,6 +9,7 @@ import Card from "../../Components/Card/Card";
 const NewsDetail = () => {
   const rightSideItems = newsData.slice(1, 4);
   const left = newsData.slice(0, 1);
+
   return (
     <>
       <NewsHeader></NewsHeader>

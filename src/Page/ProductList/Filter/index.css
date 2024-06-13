@@ -89,8 +89,13 @@
 }
 .type h2,
 .fil_cost h2,
-.brand h2 {
+.ngoc {
   font-size: 30px;
   padding: 5px;
   color: lightcoral;
+}
+.brand_ngoc {
+  font-size: 30px;
+  padding: 5px;
+  font-style: italic;
 }

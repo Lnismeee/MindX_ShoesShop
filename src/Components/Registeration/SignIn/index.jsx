@@ -11,8 +11,10 @@ import * as Yup from "yup";
 export default function SignInForm() {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
   const signInSchema = Yup.object().shape({
-    email: Yup.string().email("* Invalid email").required("* Required"),
-    password: Yup.string().required("* Required"),
+    email: Yup.string()
+      .email("* Invalid email")
+      .required("* Vui lòng nhập email!"),
+    password: Yup.string().required("* Vui lòng nhập mật khẩu"),
   });
   const dispatch = useDispatch();
 
@@ -25,7 +27,7 @@ export default function SignInForm() {
 
   return (
     <div>
-      <h1 className="mb-5 text-4xl font-bold">Sign In</h1>
+      <h1 className="mb-5 text-4xl font-bold">Đăng nhập</h1>
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={signInSchema}
@@ -49,13 +51,13 @@ export default function SignInForm() {
             className="-mt-3 text-sm text-red-500"
           />
           <label htmlFor="password" className="font-medium">
-            Password
+            Mật khẩu
           </label>
           <div className="-mt-3 flex items-center justify-between rounded border border-gray-300 p-2">
             <Field
               name="password"
               type={passwordVisible ? "text" : "password"}
-              placeholder="Password"
+              placeholder="Nhập mật khẩu"
               className="w-full focus:outline-none"
             />
             {passwordVisible ? (
@@ -79,7 +81,7 @@ export default function SignInForm() {
             type="submit"
             className="rounded bg-green-700 p-2 font-bold text-white hover:bg-green-800"
           >
-            Sign In
+            Đăng nhập
           </button>
         </Form>
       </Formik>

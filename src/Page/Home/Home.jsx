@@ -6,6 +6,7 @@ import "./style.css";
 import data from "../../Data/data.json";
 import card from "../../Data/newsData.json";
 import galleryImages from "../../Data/gallery.json";
+
 const Home = () => {
   const home2 = [
     {
@@ -215,19 +216,23 @@ const Home = () => {
         <div className="home__footer">
           <h2 className="home__footer--heading">Kiến thức mua hàng</h2>
           <div className="home__footer1">
-            {card.slice(0, 3).map((item) => (
-              <div key={item.id} className="home__footer--card">
-                <img src={item.img} alt="" className="home__footer--img" />
+            <NavLink to={"/news/detail"}>
+              <div className="homeCard">
+                {card.slice(0, 3).map((item) => (
+                  <div key={item.id} className="home__footer--card">
+                    <img src={item.img} alt="" className="home__footer--img" />
 
-                <div className="home__footer--desc">
-                  <a href="/">
-                    <h3>{item.title}</h3>
-                  </a>
-                  <p>{item.day}</p>
-                  <span>{item.desc}</span>
-                </div>
+                    <div className="home__footer--desc">
+                      <a href="/">
+                        <h3>{item.title}</h3>
+                      </a>
+                      <p>{item.day}</p>
+                      <span>{item.desc}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </NavLink>
           </div>
         </div>
       </div>

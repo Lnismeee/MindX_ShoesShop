@@ -22,9 +22,3 @@
 .active-item {
   color: #f25b61;
 }
-@media only screen and (max-width: 480px) {
-  .header-center {
-    position: absolute;
-    bottom: 0;
-  }
-}

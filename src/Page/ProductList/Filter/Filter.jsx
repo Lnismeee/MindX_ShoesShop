@@ -135,6 +135,7 @@ const Filter = ({ data, setData }) => {
           onClick={() => {
             setNone(!none);
           }}
+          className="ngoc"
         >
           Thương hiệu sản phẩm
         </h2>
@@ -145,10 +146,8 @@ const Filter = ({ data, setData }) => {
               alt=""
               className="N-icon"
             />
-            <div>
-              <input type="checkbox" id="thsp" />
-              <label htmlFor="thsp"> Shoes Babies</label>
-            </div>
+
+            <h2 className="brand_ngoc">Shoes Babies</h2>
           </div>
         </div>
         <div className="type">
@@ -168,27 +167,6 @@ const Filter = ({ data, setData }) => {
           </div>
         </div>
 
-        <div className="color">
-          <h2
-            onClick={() => {
-              setNone3(!none3);
-            }}
-          >
-            Màu sắc
-          </h2>
-          <div className={setclassName(none3)}>
-            {arrcolor.map((item, index) => {
-              return (
-                <ItemColor
-                  data={item}
-                  id={index + 200}
-                  key={index + 200}
-                  ChangeDk={ChangeDk}
-                />
-              );
-            })}
-          </div>
-        </div>
         <div className="fil_cost">
           <h2
             onClick={() => {

@@ -7,19 +7,21 @@ import * as Yup from "yup";
 export default function SignUpForm() {
   // validation schema
   const signUpSchema = Yup.object().shape({
-    username: Yup.string().required("* Required"),
-    email: Yup.string().email("* Invalid email").required("* Required"),
+    username: Yup.string().required("* Vui lòng nhập lại họ và tên!"),
+    email: Yup.string()
+      .email("* Invalid email")
+      .required("* Vui lòng nhập lại Email!"),
     password: Yup.string()
-      .required("* Required")
-      .min(8, "* Password must be at least 8 characters"),
+      .required("* Vui lòng nhập lại mật khẩu!")
+      .min(8, "* Mật khẩu cần dài ít nhất 8 ký tự"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "* Passwords must match")
+      .oneOf([Yup.ref("password"), null], "* Mật khẩu phải trùng khớp")
       .required("* Required")
-      .min(8, "* Password must be at least 8 characters"),
+      .min(8, "* Mật khẩu cần dài ít nhất 8 ký tự"),
     phone_number: Yup.string()
-      .required("* Required")
-      .matches(/^[0-9]+$/, "* Must be only digits")
-      .min(10, "* Must be at least 8 digits"),
+      .required("* Vui lòng nhập lại số điện thoại!")
+      .matches(/^[0-9]+$/, "* Số thoại phải đúng")
+      .min(10, "* Số điện thoại chưa phù hợp"),
   });
 
   // redux
@@ -27,7 +29,7 @@ export default function SignUpForm() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-5">Sign Up</h1>
+      <h1 className="text-4xl font-bold mb-5">Đăng ký tài khoản</h1>
       <Formik
         initialValues={{
           username: "",
@@ -44,12 +46,12 @@ export default function SignUpForm() {
       >
         <Form className="flex flex-col gap-4">
           <label htmlFor="username" className="font-medium">
-            Username
+            Họ và tên khánh hàng
           </label>
           <Field
             name="username"
             type="text"
-            placeholder="Username"
+            placeholder="Họ và tên"
             className="-mt-3 rounded border border-gray-300 p-2 focus:outline-none"
           />
           <ErrorMessage
@@ -74,12 +76,12 @@ export default function SignUpForm() {
           />
 
           <label htmlFor="password" className="font-medium">
-            Password
+            Mật khẩu
           </label>
           <Field
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="Nhập mật khẩu"
             className="-mt-3 rounded border border-gray-300 p-2 focus:outline-none"
           />
           <ErrorMessage
@@ -89,12 +91,12 @@ export default function SignUpForm() {
           />
 
           <label htmlFor="confirmPassword" className="font-medium">
-            Confirm Password
+            Xác nhận lại mật khẩu
           </label>
           <Field
             name="confirmPassword"
             type="password"
-            placeholder="Confirm Password"
+            placeholder="Xác nhận lại mật khẩu"
             className="-mt-3 rounded border border-gray-300 p-2 focus:outline-none"
           />
           <ErrorMessage
@@ -104,12 +106,12 @@ export default function SignUpForm() {
           />
 
           <label htmlFor="phone_number" className="font-medium">
-            Phone Number
+            Số điện thoại
           </label>
           <Field
             name="phone_number"
             type="text"
-            placeholder="Phone Number"
+            placeholder="Nhập số điện thoại"
             className="-mt-3 rounded border border-gray-300 p-2 focus:outline-none"
           />
           <ErrorMessage
@@ -120,9 +122,9 @@ export default function SignUpForm() {
 
           <button
             type="submit"
-            className="rounded bg-green-700 p-2 font-bold text-white hover:bg-green-800"
+            className="rounded bg-orange-500 p-2 font-bold text-white hover:bg-green-800"
           >
-            Sign Up
+            Đăng kí tài khoản
           </button>
         </Form>
       </Formik>

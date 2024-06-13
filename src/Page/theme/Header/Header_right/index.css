@@ -2,7 +2,7 @@
   flex-grow: 8;
   display: flex;
   align-items: center;
-  
+
   gap: 20px;
 }
 .header-right input {

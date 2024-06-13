@@ -1,32 +1,41 @@
+/* General Grid Layout */
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Added gap for consistency */
 }
+
+/* Centering Container */
 .list12 {
   display: block;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
+
+/* Tablet View (767px to 1024px) */
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
-  .card1 {
-    width: 33%;
-  }
-}
-@media only screen and (max-width: 766px) {
-  .card123 {
-    width: 50%;
-    font-size: 14px;
-  }
-  .card123 .cost {
-    gap: 0px;
+  .list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Mobile View (max-width 766px) */
+@media only screen and (max-width: 766px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+}
+
+/* Card Styling */
 .card123 {
   margin: 10px;
+  display: flex; /* Ensure flex properties are applied */
   align-items: center;
   justify-content: center;
 }
 
+/* Pagination Styling */
 .pagination {
   display: flex;
   justify-content: center;

@@ -111,7 +111,7 @@
   font-weight: 600;
   font-size: 40px;
 }
-.home__footer1 {
+.homeCard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
@@ -190,6 +190,10 @@
   }
   .h4_title {
     font-size: 30px;
+  }
+  .homeCard {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
   }
 }
 .home_video {

@@ -168,14 +168,7 @@
 .space {
   margin-right: 10px;
 }
-@media screen and (max-width: 768px) {
-  .N-container {
-    grid-template-columns: 1fr;
-  }
-  .container_content_left {
-    grid-template-columns: 1fr;
-  }
-}
+
 .newsDetail_heading {
   font-size: 18px;
   font-weight: bold;
@@ -189,4 +182,15 @@
   font-size: 16px;
   text-align: justify;
   margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .N-container {
+    display: block;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .newCard {
+    overflow-x: scroll;
+  }
 }
