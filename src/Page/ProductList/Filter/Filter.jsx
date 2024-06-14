@@ -22,6 +22,7 @@ const Filter = ({ data, setData }) => {
     dk.add(e.type);
   });
   let arrtmp = [];
+  
   const [arrtype, setArrtype] = useState([
     { name: "High", check: false },
     { name: "Low", check: false },
@@ -124,9 +125,10 @@ const Filter = ({ data, setData }) => {
       }
     });
   };
-
+  
   /*------------------------------------------------------------------------------------------------*/
 
+  
   // Render
   return (
     <div className="filter">
@@ -187,6 +189,7 @@ const Filter = ({ data, setData }) => {
               );
             })}
           </div>
+
         </div>
       </div>
     </div>

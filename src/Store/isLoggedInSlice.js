@@ -50,6 +50,7 @@ const isLoggedInSlice = createSlice({
     isLoggedIn: false,
     signUpStatus: "",
     signInStatus: "",
+    userId: "",
     username: "",
     email: "",
     phone_number: "",
@@ -63,6 +64,7 @@ const isLoggedInSlice = createSlice({
       // console.log("Logging out!");
       localStorage.removeItem("accessToken");
       state.isLoggedIn = false;
+      state.userId = "";
       state.username = "";
       state.email = "";
       state.phone_number = "";
@@ -108,6 +110,7 @@ const isLoggedInSlice = createSlice({
 
     // this is for getting user's info
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
+      state.userId = action.payload.userId;
       state.username = action.payload.username;
       state.email = action.payload.email;
       state.phone_number = action.payload.phone_number;

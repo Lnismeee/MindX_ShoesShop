@@ -1,4 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const orderProduct = createAsyncThunk("cart/orderProduct", async (values) => {
+    try {
+        const response = await axios.post("https://ss3-services.onrender.com/mindx_ss3_2/universal/ordering", values);
+        return response.data;
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
 
 const initialState = {
     cart: [],
@@ -40,6 +51,19 @@ const cartChecker = createSlice({
                 return item;
             });
         },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(orderProduct.pending, (state) => {
+                state.status = "loading";
+            })
+            .addCase(orderProduct.fulfilled, (state, action) => {
+                state.status = "success";
+                state.cart = [];
+            })
+            .addCase(orderProduct.rejected, (state) => {
+                state.status = "failed";
+            });
     },
 });
 

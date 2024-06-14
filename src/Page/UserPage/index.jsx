@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 export default function UserPage() {
   const loginState = useSelector((state) => state.isLoggedIn.isLoggedIn);
+  const userId = useSelector((state) => state.isLoggedIn.userId);
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
   const phone_number = useSelector((state) => state.isLoggedIn.phone_number);
@@ -24,6 +25,7 @@ export default function UserPage() {
       navigate("/login");
     } else {
       console.log("Login state: ", loginState);
+      console.log("User ID: ", userId);
       console.log("Username: ", username);
       console.log("Email: ", email);
       console.log("Phone number: ", phone_number);

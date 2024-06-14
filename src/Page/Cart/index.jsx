@@ -53,7 +53,7 @@ export default function Cart() {
     } else if (type === "all") {
       dispatch(removeAll());
     }
-  }
+  };
   /*------------------------------------------------------------------------------------------------*/
 
   while (status === "loading") {
@@ -65,7 +65,7 @@ export default function Cart() {
   console.log(cart);
   if (cart === null || cart.length === 0) {
     return (
-      <div className="mb-80 pt-60 flex flex-col items-center justify-around gap-7">
+      <div className="mb-80 flex flex-col items-center justify-around gap-7 pt-60">
         <h1 className="mt-8 text-5xl font-light text-gray-300">
           Your Cart Is Empty
         </h1>
@@ -103,7 +103,7 @@ export default function Cart() {
                     <div
                       className="flex h-auto w-3/4 flex-row items-center justify-end gap-7"
                       onClick={() =>
-                        navigate(`/converseall/product/${product._id}`)
+                        navigate(`/products/${product._id}`)
                       }
                     >
                       <p className="text-right font-bold text-gray-600">
