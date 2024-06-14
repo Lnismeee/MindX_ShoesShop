@@ -1,9 +1,11 @@
 import React from "react";
+import {useSelector, useDispatch} from "react-redux";
+import { fetchProducts } from "../../Store/products_slice";
 import Slideshow from "../../Components/Slider";
 import Card from "../../Components/Card/Card";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import data from "../../Data/data.json";
+// import data from "../../Data/data.json";
 import card from "../../Data/newsData.json";
 import galleryImages from "../../Data/gallery.json";
 
@@ -30,6 +32,19 @@ const Home = () => {
       desc: "Sản phẩm chính hãng. Được nhập khẩu 100% từ hãng.",
     },
   ];
+  const { products, status } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const [data, setData] = React.useState([])
+
+  React.useEffect(() => {
+    if (products.length === 0) {
+      console.log("fetching products");
+      dispatch(fetchProducts());
+    } else {
+      setData(products);
+    }
+    console.log(status);
+  }, [dispatch, products]);
 
   return (
     <>
