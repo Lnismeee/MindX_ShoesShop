@@ -18,15 +18,16 @@ export default function SignInForm() {
   });
   const dispatch = useDispatch();
   const signInStatus = useSelector((state) => state.isLoggedIn.signInStatus);
+  const accessToken = useSelector((state) => state.isLoggedIn.accessToken);
 
   React.useEffect(() => {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("accessToken"); // if accessToken is already stored in localStorage, then get user's info
     if (token) {
       dispatch(getUserInfo(token));
     } else if (!token) {
       return;
     }
-  }, [dispatch]);
+  }, [accessToken]);
 
   return (
     <div>

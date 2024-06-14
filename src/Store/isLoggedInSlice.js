@@ -94,16 +94,16 @@ const isLoggedInSlice = createSlice({
 
     // this is for tokenizing
     builder.addCase(tokenize.fulfilled, (state, action) => {
-      // state.isLoggedIn = true;
       if (action.payload === "Mật khẩu không đúng") {
         state.signInStatus = "wrong password";
         console.log("tokenize failed!");
         return;
       }
-      console.log(state.isLoggedIn);
-      state.accessToken = action.payload;
+      state.accessToken = action.payload; // action.payload.accessToken when the backend is fixed
       state.refreshToken = action.payload.refreshToken;
       localStorage.setItem("accessToken", state.accessToken);
+      localStorage.setItem("refreshToken", state.refreshToken);
+      console.log(state.isLoggedIn);
       console.log(state.accessToken);
       console.log("tokenize successfully!");
     });

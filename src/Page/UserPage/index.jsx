@@ -19,9 +19,7 @@ export default function UserPage() {
   };
 
   useEffect(() => {
-    if (loginState === false) {
-      navigate("/login");
-    } else if (loginState === null) {
+    if (loginState === false || loginState === null) {
       navigate("/login");
     } else {
       console.log("Login state: ", loginState);
