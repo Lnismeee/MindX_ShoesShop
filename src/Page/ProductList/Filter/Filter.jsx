@@ -43,20 +43,25 @@ const Filter = ({ data, setData }) => {
 
   // Xử lý điều kiện type
   useEffect(() => {
-    count = 0;
-    arrtype.forEach((item) => {
-      if (item.check == true) {
-        count += 1;
-        data.forEach((e) => {
-          if (e.type != item.name) e.hide = false;
-        });
-      }
-    });
-    if (count == 0)
-      data.forEach((e) => {
-        e.hide = true;
+    let count = 0;
+    setData((currentData) => {
+      let newData = [...currentData]; // create a new copy of currentData
+      arrtype.forEach((item) => {
+        if (item.check === true) {
+          count += 1;
+          newData = newData.map((e) => {
+            if (e.type !== item.name) {
+              return { ...e, hide: false };
+            }
+            return e;
+          });
+        }
       });
-    setData([...data]);
+      if (count === 0) {
+        newData = newData.map((e) => ({ ...e, hide: true }));
+      }
+      return newData; // update the state
+    });
   }, [arrtype]);
 
   const [arrcost, setArrcost] = useState([
