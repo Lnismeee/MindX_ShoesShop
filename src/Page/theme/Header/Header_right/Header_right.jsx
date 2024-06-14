@@ -50,8 +50,8 @@ const Header_right = () => {
                 key={product._id}
                 className="flex flex-row items-center justify-between gap-5 p-4 hover:bg-slate-100 cursor-pointer"
                 onClick={() => {
-                  navigate(`/products/${product._id}`);
                   setFindInput("");
+                  navigate(`/products/${product._id}`);
                 }}
               >
                 <img
