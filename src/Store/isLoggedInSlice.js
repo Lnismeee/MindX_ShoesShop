@@ -23,7 +23,8 @@ export const tokenize = createAsyncThunk("tokenize", async (values) => {
     // console.log(typeof response.data);
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
+    return error.response.data;
   }
 });
 
@@ -40,21 +41,22 @@ export const getUserInfo = createAsyncThunk("getUserInfo", async (values) => {
     // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 });
 
 const isLoggedInSlice = createSlice({
   name: "isLoggedIn",
   initialState: {
-    isLoggedIn: false,
-    signUpStatus: "",
-    signInStatus: "",
+    isLoggedIn: false, // this is for checking if the user is logged in then it will change the icon of the login Navlink
+    signUpStatus: "", // this is for checking if the user is signing up to render the loading screen
+    signInStatus: "", // this is for checking if the user is signing in (when tokenizing) to render the loading screen
     userId: "",
     username: "",
     email: "",
     phone_number: "",
     accessToken: "",
+    refreshToken: "",
   },
   reducers: {
     checkLoggedIn: (state, action) => {
@@ -92,9 +94,15 @@ const isLoggedInSlice = createSlice({
 
     // this is for tokenizing
     builder.addCase(tokenize.fulfilled, (state, action) => {
-      state.isLoggedIn = true;
+      // state.isLoggedIn = true;
+      if (action.payload === "Mật khẩu không đúng") {
+        state.signInStatus = "wrong password";
+        console.log("tokenize failed!");
+        return;
+      }
       console.log(state.isLoggedIn);
       state.accessToken = action.payload;
+      state.refreshToken = action.payload.refreshToken;
       localStorage.setItem("accessToken", state.accessToken);
       console.log(state.accessToken);
       console.log("tokenize successfully!");

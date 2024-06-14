@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaEye } from "react-icons/fa6";
 import { TbEyeClosed } from "react-icons/tb";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { tokenize } from "../../../Store/isLoggedInSlice";
 import { getUserInfo } from "../../../Store/isLoggedInSlice";
 import * as Yup from "yup";
@@ -17,11 +17,14 @@ export default function SignInForm() {
     password: Yup.string().required("* Vui lòng nhập mật khẩu"),
   });
   const dispatch = useDispatch();
+  const signInStatus = useSelector((state) => state.isLoggedIn.signInStatus);
 
   React.useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) {
       dispatch(getUserInfo(token));
+    } else if (!token) {
+      return;
     }
   }, [dispatch]);
 
@@ -77,6 +80,11 @@ export default function SignInForm() {
             component="div"
             className="-mt-3 text-sm text-red-500"
           />
+          {signInStatus === "wrong password" && (
+            <div className="w-full m-auto bg-red-50 py-3 rounded-md">
+              <p className="text-red-500 text-sm text-center">Mật khẩu không đúng</p>
+            </div>
+          )}  
           <button
             type="submit"
             className="rounded bg-green-700 p-2 font-bold text-white hover:bg-green-800"
