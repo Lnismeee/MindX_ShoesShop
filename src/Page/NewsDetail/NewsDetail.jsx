@@ -2,7 +2,7 @@ import React from "react";
 import newsData from "../../Data/newsData.json";
 import "./style.css";
 import NewsHeader from "../News/NewsHeader/header";
-import content from "../../Data/NewsDetail.json";
+import content from "../../Data/newsDetail.json";
 // import data from "../../Data/data.json";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
