@@ -23,7 +23,7 @@ const ProductList = () => {
     } else {
       setData(products);
     }
-    console.log(status);
+    // console.log(status);
     // setData(products)
   }, [dispatch]);
 
@@ -48,7 +48,7 @@ const ProductList = () => {
   }
 
   if (status === "success") {
-    console.log("succeeded");
+    // console.log("succeeded");
     // console.log(products);
     return (
       <div>

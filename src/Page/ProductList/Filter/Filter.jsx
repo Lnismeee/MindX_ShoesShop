@@ -44,8 +44,8 @@ const Filter = ({ data, setData }) => {
   // Xử lý điều kiện type
   useEffect(() => {
     let count = 0;
-    setData((currentData) => {
-      let newData = [...currentData]; // create a new copy of currentData
+    setData((data) => {
+      let newData = [...data]; // create a new copy of currentData
       arrtype.forEach((item) => {
         if (item.check === true) {
           count += 1;
@@ -79,27 +79,27 @@ const Filter = ({ data, setData }) => {
     });
     if (arrcost[0].check == true) {
       data.forEach((e) => {
-        if (e.cost >= 1000000) e.hide = false;
+        if (e.cost > 1000000) e.hide = false;
       });
     }
     if (arrcost[1].check == true) {
       data.forEach((e) => {
-        if (e.cost < 1000000 || e.cost >= 1500000) e.hide = false;
+        if (e.cost <= 1000000 || e.cost > 1500000) e.hide = false;
       });
     }
     if (arrcost[2].check == true) {
       data.forEach((e) => {
-        if (e.cost < 1500000 || e.cost >= 3000000) e.hide = false;
+        if (e.cost <= 1500000 || e.cost > 3000000) e.hide = false;
       });
     }
     if (arrcost[3].check == true) {
       data.forEach((e) => {
-        if (e.cost < 3000000 || e.cost >= 5000000) e.hide = false;
+        if (e.cost <= 3000000 || e.cost >= 5000000) e.hide = false;
       });
     }
     if (arrcost[4].check == true) {
       data.forEach((e) => {
-        if (e.cost < 20000000) e.hide = false;
+        if (e.cost < 5000000) e.hide = false;
       });
     }
     if (count == 0)

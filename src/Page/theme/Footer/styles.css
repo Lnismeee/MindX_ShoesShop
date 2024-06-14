@@ -163,3 +163,13 @@
     display: none;
   }
 }
+@media only screen and (max-width: 1025px) {
+  .footer-form{
+    display: block;
+    padding-top: 30px;
+  }
+  .footer__row {
+    margin-left: 0;
+    column-gap: 10px;
+  }
+}
