@@ -26,7 +26,6 @@ const Contact = () => {
             <img
               src="https://bizweb.dktcdn.net/100/493/370/themes/940719/assets/page-about-new-image-1.jpg?1713464283843"
               alt="Contact 1"
-              style={{ maxWidth: "500px" }}
             />
           </div>
         </div>
@@ -37,7 +36,6 @@ const Contact = () => {
             <img
               src="https://bizweb.dktcdn.net/100/493/370/themes/940719/assets/page-about-new-image-2.jpg?1713464283843"
               alt="Contact 2"
-              style={{ maxWidth: "500px" }}
             />
           </div>
           <div className="info">

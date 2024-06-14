@@ -1,0 +1,5 @@
+.headerN {
+  width: 1920px;
+  max-width: calc(100% - 10%);
+  margin: 0 auto;
+}

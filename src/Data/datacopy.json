@@ -1,83 +1,81 @@
 [
-    {
-        "id": 1,
-        "name": "Converse Chuck Taylor All Star Mono Leather Low Top",
-        "img_1": "https://bizweb.dktcdn.net/100/493/370/products/136823c-5-650x650-15ff91e141be424b95a2892abf3fe169-jpeg.jpg?v=1699864035783",
-        "img_2": "https://bizweb.dktcdn.net/100/493/370/products/136823c-2-650x650-a1096454688d47c693bad810d9321f85-jpeg.jpg?v=1699864035783",
-        "img_3": "https://bizweb.dktcdn.net/100/493/370/products/136823c-1-650x650-f30ba8e6f4ca46e593e49c10cf33e7dd-jpeg.jpg?v=1699864035783",
-        "img_4": "https://bizweb.dktcdn.net/100/493/370/products/136823c-3-650x650-f30ba8e6f4ca46e593e49c10cf33e7dd-jpeg.jpg?v=1699864035783",
-        "type": "Low",
-        "cost": 1900000,
-        "old_cost": 2139000,
-        "discount": "-11%",
-        "hide": true
-    },
-    {
-        "id": 2,
-        "name": "Converse Chuck Taylor All Star Classic",
-        "img_1": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake-650x650-65cdda7193cb40b9977bfd6379e567c5-jpeg.jpg?v=1699864033743",
-        "img_2": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake2-650x650-b62837853a4d4d739ba4f556c2cd82bb-jpeg.jpg?v=1699864033743",
-        "img_3": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake4-650x650-fdf7ea31c9444facbe9574aac96d2594-jpeg.jpg?v=1699864033743",
-        "img_4": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake3-650x650-fdf7ea31c9444facbe9574aac96d2594-jpeg.jpg?v=1699864033743",
-        "type": "Low",
-        "cost": 1900000,
-        "old_cost": 2139000,
-        "discount": "-11%",
-        "hide": true
-    },
-    {
-        "id": 3,
-        "name": "Chuck Taylor All Star Classic - 121184",
-        "img_1": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake-650x650-3be016cc519b40a09093df5718bdbaf9-jpeg.jpg?v=1699864031380",
-        "img_2": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake2-650x650-e8371211b05e47dfa5d17f7db84c2f01-jpeg.jpg?v=1699864031380",
-        "img_3": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake3-650x650-e8371211b05e47dfa5d17f7db84c2f01-jpeg.jpg?v=1699864031380",
-        "img_4": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake4-650x650-e8371211b05e47dfa5d17f7db84c2f01-jpeg.jpg?v=1699864031380",
-        "type": "High",
-        "cost": 1900000,
-        "old_cost": 2139000,
-        "discount": "-11%",
-        "hide": true
-    },
-    {
-        "id": 4,
-        "name": "Chuck Taylor All Star Classic R",
-        "img_1": "https://bizweb.dktcdn.net/100/493/370/products/126196-002-650x650-115fc0e823304481a9e282f4c63c4e42-jpeg.jpg?v=1699864029033",
-        "img_2": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake1-1-650x650-92cc0a3ce2b94489b7d9c2b7879e8964-jpeg.jpg?v=1699864029033",
-        "img_3": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake2-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
-        "img_4": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake3-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
-        "type": "Low",
-        "cost": 1900000,
-        "old_cost": 2139000,
-        "discount": "-11%",
-        "hide": true
-    },
-    
-    {
-        "id": 5,
-        "name": "Chuck Taylor All Star Classic R",
-        "img_1": "https://bizweb.dktcdn.net/100/493/370/products/126196-002-650x650-115fc0e823304481a9e282f4c63c4e42-jpeg.jpg?v=1699864029033",
-        "img_2": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake1-1-650x650-92cc0a3ce2b94489b7d9c2b7879e8964-jpeg.jpg?v=1699864029033",
-        "img_3": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake2-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
-        "img_4": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake3-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
-        "type": "Thấp cổ",
-        "cost": 4900000,
-        "old_cost": 6139000,
-        "discount": "-11%",
-        "hide": true
-    },
-    {
-        "id": 6,
-        "name": "Chuck Taylor All Star Classic R",
-        "img_1": "https://bizweb.dktcdn.net/100/493/370/products/126196-002-650x650-115fc0e823304481a9e282f4c63c4e42-jpeg.jpg?v=1699864029033",
-        "img_2": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake1-1-650x650-92cc0a3ce2b94489b7d9c2b7879e8964-jpeg.jpg?v=1699864029033",
-        "img_3": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake2-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
-        "img_4": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake3-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
-        "type": "Thấp cổ",
-        "cost":7000000,
-        "old_cost": 9139000,
-        "discount": "-11%",
-        "hide": true
-    }
-    
-    
+  {
+    "id": 1,
+    "name": "Converse Chuck Taylor All Star Mono Leather Low Top",
+    "img_1": "https://bizweb.dktcdn.net/100/493/370/products/136823c-5-650x650-15ff91e141be424b95a2892abf3fe169-jpeg.jpg?v=1699864035783",
+    "img_2": "https://bizweb.dktcdn.net/100/493/370/products/136823c-2-650x650-a1096454688d47c693bad810d9321f85-jpeg.jpg?v=1699864035783",
+    "img_3": "https://bizweb.dktcdn.net/100/493/370/products/136823c-1-650x650-f30ba8e6f4ca46e593e49c10cf33e7dd-jpeg.jpg?v=1699864035783",
+    "img_4": "https://bizweb.dktcdn.net/100/493/370/products/136823c-3-650x650-f30ba8e6f4ca46e593e49c10cf33e7dd-jpeg.jpg?v=1699864035783",
+    "type": "Low",
+    "cost": 1900000,
+    "old_cost": 2139000,
+    "discount": "-11%",
+    "hide": true
+  },
+  {
+    "id": 2,
+    "name": "Converse Chuck Taylor All Star Classic",
+    "img_1": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake-650x650-65cdda7193cb40b9977bfd6379e567c5-jpeg.jpg?v=1699864033743",
+    "img_2": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake2-650x650-b62837853a4d4d739ba4f556c2cd82bb-jpeg.jpg?v=1699864033743",
+    "img_3": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake4-650x650-fdf7ea31c9444facbe9574aac96d2594-jpeg.jpg?v=1699864033743",
+    "img_4": "https://bizweb.dktcdn.net/100/493/370/products/121176-drake3-650x650-fdf7ea31c9444facbe9574aac96d2594-jpeg.jpg?v=1699864033743",
+    "type": "Low",
+    "cost": 1900000,
+    "old_cost": 2139000,
+    "discount": "-11%",
+    "hide": true
+  },
+  {
+    "id": 3,
+    "name": "Chuck Taylor All Star Classic - 121184",
+    "img_1": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake-650x650-3be016cc519b40a09093df5718bdbaf9-jpeg.jpg?v=1699864031380",
+    "img_2": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake2-650x650-e8371211b05e47dfa5d17f7db84c2f01-jpeg.jpg?v=1699864031380",
+    "img_3": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake3-650x650-e8371211b05e47dfa5d17f7db84c2f01-jpeg.jpg?v=1699864031380",
+    "img_4": "https://bizweb.dktcdn.net/100/493/370/products/121184-drake4-650x650-e8371211b05e47dfa5d17f7db84c2f01-jpeg.jpg?v=1699864031380",
+    "type": "High",
+    "cost": 1900000,
+    "old_cost": 2139000,
+    "discount": "-11%",
+    "hide": true
+  },
+  {
+    "id": 4,
+    "name": "Chuck Taylor All Star Classic Receiver",
+    "img_1": "https://bizweb.dktcdn.net/100/493/370/products/126196-002-650x650-115fc0e823304481a9e282f4c63c4e42-jpeg.jpg?v=1699864029033",
+    "img_2": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake1-1-650x650-92cc0a3ce2b94489b7d9c2b7879e8964-jpeg.jpg?v=1699864029033",
+    "img_3": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake2-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
+    "img_4": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake3-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
+    "type": "Low",
+    "cost": 1900000,
+    "old_cost": 2139000,
+    "discount": "-11%",
+    "hide": true
+  },
+
+  {
+    "id": 5,
+    "name": "Chuck Taylor All Star Classic R",
+    "img_1": "https://bizweb.dktcdn.net/100/493/370/products/126196-002-650x650-115fc0e823304481a9e282f4c63c4e42-jpeg.jpg?v=1699864029033",
+    "img_2": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake1-1-650x650-92cc0a3ce2b94489b7d9c2b7879e8964-jpeg.jpg?v=1699864029033",
+    "img_3": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake2-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
+    "img_4": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake3-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
+    "type": "Thấp cổ",
+    "cost": 4900000,
+    "old_cost": 6139000,
+    "discount": "-11%",
+    "hide": true
+  },
+  {
+    "id": 6,
+    "name": "Chuck Taylor All Star Classic R",
+    "img_1": "https://bizweb.dktcdn.net/100/493/370/products/126196-002-650x650-115fc0e823304481a9e282f4c63c4e42-jpeg.jpg?v=1699864029033",
+    "img_2": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake1-1-650x650-92cc0a3ce2b94489b7d9c2b7879e8964-jpeg.jpg?v=1699864029033",
+    "img_3": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake2-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
+    "img_4": "https://bizweb.dktcdn.net/100/493/370/products/126196-drake3-1-650x650-db9dd9d3dc3d4ae4aa590fff4f81ea5b-jpeg.jpg?v=1699864029033",
+    "type": "Thấp cổ",
+    "cost": 7000000,
+    "old_cost": 9139000,
+    "discount": "-11%",
+    "hide": true
+  }
 ]

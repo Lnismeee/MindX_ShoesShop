@@ -1,15 +1,20 @@
-.header-left {
+.header_left {
   width: 12%;
   min-width: 70px;
   height: auto;
   flex-grow: 1;
   display: flex;
   align-items: center;
-  display: flex;
   justify-content: center;
+  margin-left: 30px;
 }
-.header-left img {
+.header_left img {
   height: 50%;
   width: 50%;
   cursor: pointer;
+}
+@media only screen and (max-width: 480px) {
+  .header_left {
+    display: none;
+  }
 }

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { findingProducts } from "../../../../Store/products_slice";
-import "./index.css";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
-import { CiShoppingCart } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import { CiLogin } from "react-icons/ci";
+import { CiShoppingCart, CiHeart, CiLogin } from "react-icons/ci";
+import { IoSearchSharp } from "react-icons/io5";
 import { NavLink, useNavigate } from "react-router-dom";
 import ReactLoading from "react-loading";
+import "./index.css";
 
 const Header_right = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn.isLoggedIn);
@@ -18,7 +17,20 @@ const Header_right = () => {
   const dispatch = useDispatch();
   const [findInput, setFindInput] = useState("");
   const navigate = useNavigate();
+  
+  // LN works--------------------------------------------------------------
+  
+  const [checkbokmenu, setCheckboxmenu] = useState(false);
+  const closemenu = () => {
+    setCheckboxmenu(!checkbokmenu);
+  };
+  const activeClass = (params) => {
+    return params.isActive ? "active-item h-c-title" : "h-c-title";
+  };
+  //-----------------------------------------------------------------------
 
+  
+  
   /**--------------------------------------------
    *               functions
    *---------------------------------------------**/
@@ -78,8 +90,9 @@ const Header_right = () => {
   /*------------------------------------------------------------------------*/
 
   return (
-    <div className="hidden flex-row items-center justify-between gap-10 lg:flex">
-      <div className="flex flex-row rounded-xl border-2 border-gray-500 border-opacity-30 px-5 py-2">
+    <div className="flex flex-row justify-between items-center gap-4 md:gap-10">
+      <div className="flex items-center border-gray-500 border-opacity-30 border-2 py-2 px-3 md:px-5 rounded-xl w-full md:w-auto">
+        <IoSearchSharp className="text-xl text-gray-600 mr-3" />
         <input
           type="text"
           value={findInput}
@@ -89,7 +102,10 @@ const Header_right = () => {
         />
         {findInput && renderResult()}
       </div>
-      <NavLink to="/login">
+      <label htmlFor="check_repon" className="i_check">
+        <i className="fa-solid fa-bars"></i>
+      </label>
+      <NavLink to={isLoggedIn ? "/profile" : "/login"}>
         {isLoggedIn ? (
           <BsPersonCircle className="text-xl text-gray-600" />
         ) : (
@@ -101,9 +117,64 @@ const Header_right = () => {
         {cart.length > 0 ? (
           <MdShoppingCartCheckout className="text-2xl" />
         ) : (
-          <CiShoppingCart className="text-2xl" />
+          <CiShoppingCart className="text-2xl text-gray-600" />
         )}
       </NavLink>
+      <input
+        type="checkbox"
+        id="check_repon"
+        checked={checkbokmenu}
+        onChange={() => {
+          setCheckboxmenu(!checkbokmenu);
+        }}
+      />
+      <label htmlFor="check_repon" className="nar-overplay"></label>
+      <div className="menu_mobile">
+        <div className="menu_mobile_h">
+          <h2>Danh mục</h2>
+          <label htmlFor="check_repon">
+            <i className="fa-solid fa-xmark"></i>
+          </label>
+        </div>
+        <div className="list_link">
+          <NavLink
+            to="/"
+            className={activeClass}
+            onClick={(e) => {
+              closemenu(e);
+            }}
+          >
+            Trang chủ
+          </NavLink>
+          <NavLink
+            to="/products"
+            className={activeClass}
+            onClick={(e) => {
+              closemenu(e);
+            }}
+          >
+            Tất cả sản phẩm &#8250;
+          </NavLink>
+          <NavLink
+            to="/news"
+            className={activeClass}
+            onClick={(e) => {
+              closemenu(e);
+            }}
+          >
+            Tin tức
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={activeClass}
+            onClick={(e) => {
+              closemenu(e);
+            }}
+          >
+            Liên hệ
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
 };
