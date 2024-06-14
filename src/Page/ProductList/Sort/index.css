@@ -1,6 +1,6 @@
 .sort {
   padding: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -23,7 +23,9 @@
 .sort-right {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 30px;
+  margin-right: 20px;
+  font-size: 20px;
 }
 .sort-left {
   display: flex;

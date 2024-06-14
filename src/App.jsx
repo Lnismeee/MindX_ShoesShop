@@ -5,8 +5,8 @@ import News from "./Page/News";
 import Contact from "./Page/Contact";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Page/theme/Header/Header";
-import Footer from "./page/theme/Footer";
-import Example1 from "./components/Example";
+import Footer from "./Page/theme/Footer/Footer";
+import Example1 from "./Components/Example/Example1";
 import Login from "./Page/Login";
 import UserPage from "./Page/UserPage";
 import { useDispatch } from "react-redux";
@@ -42,7 +42,7 @@ function App() {
         <Route path="/cart/checkout" element={<Checkout />} />
         <Route path="/news/detail" element={<NewsDetail />} />
       </Routes>
-      <Example1></Example1>
+      <Example1/>
       <Footer />
     </>
   );
