@@ -39,7 +39,7 @@ const Card = ({ data }) => {
           <img
             className="img2"
             src={images?.img_2 == "" ? images?.img_1 : images?.img_2}
-            alt=""
+            alt="productPictrue"
           />
         </div>
         <div className="info1">
