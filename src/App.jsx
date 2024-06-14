@@ -5,7 +5,7 @@ import News from "./Page/News";
 import Contact from "./Page/Contact";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Page/theme/Header/Header";
-import Footer from "./page/theme/Footer/index";
+import Footer from "./Page/theme/Footer/Footer";
 import Example1 from "./components/Example";
 import Login from "./Page/Login";
 import UserPage from "./Page/UserPage";
