@@ -41,7 +41,7 @@ export const getUserInfo = createAsyncThunk("getUserInfo", async (values) => {
     // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.message);
+    console.log(error.response.data);
   }
 });
 
@@ -65,6 +65,7 @@ const isLoggedInSlice = createSlice({
     Logout: (state) => {
       // console.log("Logging out!");
       localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
       state.isLoggedIn = false;
       state.userId = "";
       state.username = "";
@@ -99,7 +100,7 @@ const isLoggedInSlice = createSlice({
         console.log("tokenize failed!");
         return;
       }
-      state.accessToken = action.payload; // action.payload.accessToken when the backend is fixed
+      state.accessToken = action.payload.accessToken; // action.payload.accessToken when the backend is fixed
       state.refreshToken = action.payload.refreshToken;
       localStorage.setItem("accessToken", state.accessToken);
       localStorage.setItem("refreshToken", state.refreshToken);
