@@ -48,7 +48,7 @@ const Header_right = () => {
   // render result
   const renderResult = () => {
     return (
-      <div className="absolute z-10 max-h-96 w-96 -translate-x-28 translate-y-16 divide-y-2 divide-gray-100 overflow-scroll rounded-lg border-2 border-orange-400 bg-white p-4 shadow-lg">
+      <div className="absolute z-10 max-h-96 w-96 -translate-x-28 translate-y-56 divide-y-2 divide-gray-100 overflow-scroll rounded-lg border-2 border-orange-400 bg-white p-4 shadow-lg">
         {findingStatus === "loading" ? (
           <div className="py-10">
             <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
@@ -105,7 +105,7 @@ const Header_right = () => {
       <label htmlFor="check_repon" className="i_check">
         <i className="fa-solid fa-bars"></i>
       </label>
-      <NavLink to={isLoggedIn ? "/profile" : "/login"}>
+      <NavLink to={isLoggedIn ? "/login/user" : "/login"}>
         {isLoggedIn ? (
           <BsPersonCircle className="text-xl text-gray-600" />
         ) : (
