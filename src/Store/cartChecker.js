@@ -13,6 +13,7 @@ export const orderProduct = createAsyncThunk("cart/orderProduct", async (values)
 
 const initialState = {
     cart: [],
+    status: null,
     };
 
 const cartChecker = createSlice({
@@ -51,6 +52,9 @@ const cartChecker = createSlice({
                 return item;
             });
         },
+        setOrderStatus: (state, action) => {
+            state.status = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -67,6 +71,6 @@ const cartChecker = createSlice({
     },
 });
 
-export const { addToCart, removeById, removeAll, updateCart } = cartChecker.actions;
+export const { addToCart, removeById, removeAll, updateCart, setOrderStatus } = cartChecker.actions;
 
 export default cartChecker.reducer;
