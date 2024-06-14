@@ -3,12 +3,28 @@ import newsData from "../../Data/newsData.json";
 import "./style.css";
 import NewsHeader from "../News/NewsHeader/header";
 import content from "../../Data/NewsDetail.json";
-import data from "../../Data/data.json";
+// import data from "../../Data/data.json";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts } from "../../Store/products_slice";
 import Card from "../../Components/Card/Card";
 const NewsDetail = () => {
   const rightSideItems = newsData.slice(1, 4);
   const left = newsData.slice(0, 1);
+  const { products, status } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const [data, setData] = React.useState([])
+
+  React.useEffect(() => {
+    if (products.length === 0) {
+      console.log("fetching products");
+      dispatch(fetchProducts());
+    } else {
+      setData(products);
+    }
+    console.log(status);
+  }, [dispatch, products]);
+  
 
   return (
     <>

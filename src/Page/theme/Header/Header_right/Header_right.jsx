@@ -48,7 +48,7 @@ const Header_right = () => {
   // render result
   const renderResult = () => {
     return (
-      <div className="absolute z-10 max-h-96 w-96 -translate-x-28 translate-y-56 divide-y-2 divide-gray-100 overflow-scroll rounded-lg border-2 border-orange-400 bg-white p-4 shadow-lg">
+      <div className="absolute z-10 max-h-96 w-96 -translate-x-24 translate-y-16 divide-y-2 divide-gray-100 overflow-scroll rounded-lg border-2 border-orange-400 bg-white p-4 shadow-lg">
         {findingStatus === "loading" ? (
           <div className="py-10">
             <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
@@ -91,7 +91,8 @@ const Header_right = () => {
 
   return (
     <div className="flex flex-row justify-between items-center gap-4 md:gap-10">
-      <div className="flex items-center border-gray-500 border-opacity-30 border-2 py-2 px-3 md:px-5 rounded-xl w-full md:w-auto">
+      <div className="flex flex-col border-gray-500 border-opacity-30 border-2 py-2 px-3 md:px-5 rounded-xl w-full md:w-auto">
+        <div className="flex items-center">
         <IoSearchSharp className="text-xl text-gray-600 mr-3" />
         <input
           type="text"
@@ -100,6 +101,7 @@ const Header_right = () => {
           className="mr-5 rounded-lg p-1 focus:outline-none"
           placeholder="Tìm kiếm"
         />
+        </div>
         {findInput && renderResult()}
       </div>
       <label htmlFor="check_repon" className="i_check">
