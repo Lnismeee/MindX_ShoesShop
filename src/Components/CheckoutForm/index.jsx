@@ -5,7 +5,8 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export default function CheckoutForm() {
-  const userId = useSelector((state) => state.isLoggedIn.userId);
+  // const userId = useSelector((state) => state.isLoggedIn.userId);
+  const accessToken = useSelector((state) => state.isLoggedIn.accessToken);
   const cart = useSelector((state) => state.cartChecker.cart);
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
@@ -31,15 +32,16 @@ export default function CheckoutForm() {
         initialValues={{ name: username, email: email, phone_number: phone_number, address: "" }}
         validationSchema={checkoutSchema}
         onSubmit={(values) => {
-          const orderingSubmission = {
+          const value = {
             // userId: userId,
+            accessToken: accessToken,
             name: values.name,
             email: values.email,
             phone: values.phone_number,
             address: values.address,
             items: cart,
           };
-          dispatch(orderProduct(orderingSubmission));
+          dispatch(orderProduct(value));
         }}
       >
         <Form className="flex h-full w-full flex-col justify-between gap-3">
