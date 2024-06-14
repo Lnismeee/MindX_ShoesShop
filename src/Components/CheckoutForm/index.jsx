@@ -32,7 +32,7 @@ export default function CheckoutForm() {
         validationSchema={checkoutSchema}
         onSubmit={(values) => {
           const orderingSubmission = {
-            userId: userId,
+            // userId: userId,
             name: values.name,
             email: values.email,
             phone: values.phone_number,
