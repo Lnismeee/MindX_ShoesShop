@@ -4,7 +4,7 @@
 
 .home_container {
   width: 1920px;
-  max-width: calc(100% - 20%);
+  max-width: calc(100% - 10%);
   margin: 0 auto;
 }
 .home2 {
@@ -175,9 +175,16 @@
   .home2 {
     display: block;
   }
-  .home3 {
-    display: none;
-  }
+ .home3 .list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  overflow-x: scroll;
+ }
+.home3 .list .card123{
+  width: 250px;
+  
+}
   /* Home 4 */
   .home4 {
     grid-template-columns: repeat(1, 1fr);
@@ -194,6 +201,10 @@
   .homeCard {
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;
+  }
+  .home__footer1 {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
   }
 }
 .home_video {
