@@ -1,13 +1,13 @@
 import React, { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, updateCart } from "../../Store/cartChecker";
 import { fetchProducts } from "../../Store/products_slice";
 import ReactLoading from "react-loading";
+import Card from "../../Components/Card/Card";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
-
 export default function Product_detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -103,6 +103,20 @@ export default function Product_detail() {
   //   console.log(product.images.img_2);
   //   const imageLink = product.images.img_2;
     const [active, setActive] = React.useState(product.images.img_1);
+    useEffect (() => {
+      setActive(product.images.img_1);
+    }, [product.images.img_1]);
+    // 
+    const [data, setData] = React.useState([]);
+    React.useEffect(() => {
+      if (products.length === 0) {
+        console.log("fetching products");
+        dispatch(fetchProducts());
+      } else {
+        setData(products);
+      }
+      console.log(status);
+    }, [dispatch, products]);
     return (
       <div className="mb-30">
         <div
@@ -209,9 +223,19 @@ export default function Product_detail() {
           </div>
           
         </div>
-        
-        {/* ------------------------------------------------------------------------------------------- */}
+        <div className="d_t_item">
+          <h3 className="d_t_item_heading">Sản phẩm liên quan</h3>
+          <div className="d_t_list">
+            {data.slice(5, 10).map((item) => (
+              <div className="card123" key={item._id}>
+                <NavLink to={`/products/${item._id}`}>
+                  <Card data={item} />
+                </NavLink>
+              </div>
+            ))}
+          </div></div>
       </div>
+      
     );
   }
 

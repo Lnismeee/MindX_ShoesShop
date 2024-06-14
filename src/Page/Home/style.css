@@ -61,6 +61,11 @@
   margin: 20px 0;
   background: purple;
 }
+.home3_list{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+}
 /* hero */
 
 .home4 {
@@ -167,7 +172,6 @@
 @media (max-width: 768px) {
   .h2_container {
     width: 100%;
-
     margin-top: 10px;
     overflow: scroll;
   }
@@ -175,9 +179,9 @@
   .home2 {
     display: block;
   }
- .home3 .list{
+ .home3 .home3_list{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
   overflow-x: scroll;
  }

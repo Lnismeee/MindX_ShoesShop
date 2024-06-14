@@ -1,7 +1,7 @@
 .product_list {
   display: flex;
   flex-direction: row;
-  margin: 20px;
+  margin-top: 20px;
 }
 .product_list_right {
   display: flex;

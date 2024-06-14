@@ -70,8 +70,8 @@ const Home = () => {
             src="https://bizweb.dktcdn.net/100/493/370/themes/940719/assets/home_fsale_image.png?1713464283843"
             alt=""
           />
-          <div className="list">
-            {data.slice(0, 4).map((item) => (
+          <div className="home3_list">
+            {data.slice(0, 5).map((item) => (
               <div className="card123" key={item._id}>
                 <NavLink to={`/products/${item._id}`}>
                   <Card data={item} />

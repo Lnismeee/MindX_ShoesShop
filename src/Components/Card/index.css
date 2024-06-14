@@ -5,7 +5,7 @@
 .card {
   border: 1px solid #ebebeb;
   margin: 5px;
-  max-width: 230px;
+  max-width: 240px;
   background: #fff;
   border-radius: 5%;
   transition: all 0.5s;
@@ -116,5 +116,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 8rem;
+  height: 5rem;
+  padding: 0 5px;
 }
