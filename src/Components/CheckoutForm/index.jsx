@@ -6,7 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export default function CheckoutForm() {
   // const userId = useSelector((state) => state.isLoggedIn.userId);
-  const accessToken = useSelector((state) => state.isLoggedIn.accessToken);
+  const accessToken = useSelector((state) => state.isLoggedIn.accessToken) || localStorage.getItem("accessToken");
   const cart = useSelector((state) => state.cartChecker.cart);
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
