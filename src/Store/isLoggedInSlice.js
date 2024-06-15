@@ -28,34 +28,44 @@ export const tokenize = createAsyncThunk("tokenize", async (values) => {
   }
 });
 
-export const refreshToken = createAsyncThunk("refreshToken", async (values) => {
+export const refreshToken = createAsyncThunk("refreshToken", async (values, {rejectWithValue}) => {
   try {
+    const value = {
+      headers: {
+        Authorization: `Bearer ${values}`,
+      },
+    };
     const response = await axios.get(
       "https://ss3-services.onrender.com/mindx_ss3_2/user/refreshToken",
-      values,
+      value,
     );
     return response.data;
   } catch (error) {
     console.log(error.response.data);
+    return rejectWithValue(error.response.data);
   }
 });
 
-export const getUserInfo = createAsyncThunk("getUserInfo", async (values) => {
-  try {
-    const response = await axios.get(
-      "https://ss3-services.onrender.com/mindx_ss3_2/user/getUser",
-      {
-        headers: {
-          Authorization: `Bearer ${values}`,
+export const getUserInfo = createAsyncThunk(
+  "getUserInfo",
+  async (values, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        "https://ss3-services.onrender.com/mindx_ss3_2/user/getUser",
+        {
+          headers: {
+            Authorization: `Bearer ${values}`,
+          },
         },
-      },
-    );
-    // console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.log(error.response.data);
-  }
-});
+      );
+      // console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error.response.data);
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
 const isLoggedInSlice = createSlice({
   name: "isLoggedIn",
@@ -75,7 +85,6 @@ const isLoggedInSlice = createSlice({
       state.isLoggedIn = action.payload;
     },
     Logout: (state) => {
-      // console.log("Logging out!");
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
       state.isLoggedIn = false;
@@ -88,12 +97,8 @@ const isLoggedInSlice = createSlice({
   },
   extraReducers: (builder) => {
     // this is for register
-    builder.addCase(register.fulfilled, (state, action) => {
-      // state.username = action.payload.username;
-      // state.email = action.payload.email;
-      // state.phone_number = action.payload.phone_number;
+    builder.addCase(register.fulfilled, (state) => {
       state.signUpStatus = "success";
-      // state.isLoggedIn = true;
       console.log("Register successfully!");
     });
     builder.addCase(register.pending, (state) => {
@@ -112,7 +117,7 @@ const isLoggedInSlice = createSlice({
         console.log("tokenize failed!");
         return;
       }
-      state.accessToken = action.payload.accessToken; // action.payload.accessToken when the backend is fixed
+      state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
       localStorage.setItem("accessToken", state.accessToken);
       localStorage.setItem("refreshToken", state.refreshToken);
@@ -142,8 +147,14 @@ const isLoggedInSlice = createSlice({
     builder.addCase(getUserInfo.pending, (state) => {
       console.log("get user's info pending!");
     });
-    builder.addCase(getUserInfo.rejected, (state) => {
-      state.signInStatus = "failed";
+    builder.addCase(getUserInfo.rejected, (state, action) => {
+      if (action.payload === "jwt expired") {
+        state.signInStatus = "jwt expired";
+        console.log("get user info but jwt expired!");
+        return;
+      } else {
+        state.signInStatus = "failed";
+      }
       console.log("get user's info failed!");
     });
   },
