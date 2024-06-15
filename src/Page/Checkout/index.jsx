@@ -8,9 +8,11 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import CheckoutForm from "../../Components/CheckoutForm";
 import Popsup from "../../Components/Popsup";
 import ReactLoading from "react-loading";
+import RefreshToken from "../../Components/RefreshToken";
 
 export default function Checkout() {
   const loginState = useSelector((state) => state.isLoggedIn.isLoggedIn);
+  const refreshToken = useSelector((state) => state.isLoggedIn.refreshToken);
   const cart = useSelector((state) => state.cartChecker.cart);
   const orderStatus = useSelector((state) => state.cartChecker.status);
   const products = useSelector((state) => state.products.products);
@@ -107,23 +109,11 @@ export default function Checkout() {
       )}
       {orderStatus === "jwt expired" && (
         <Popsup>
-          <p className="mb-2 text-center text-xl font-light">
-            Đã hết phiên đăng nhập, vui lòng đăng nhập lại
+          <p className="mb-2 text-center text-xl text-gray-500 font-light">
+            Đang xác thực lại phiên đăng nhập
           </p>
-          <button
-            onClick={() => {
-              dispatch(setOrderStatus("idle"));
-              navigate("/login");
-            }}
-            className="rounded bg-orange-500 p-2 text-white hover:bg-orange-700"
-          >
-            <div className="flex flex-row items-center justify-between gap-3 divide-x-2 divide-white divide-opacity-10">
-              <span className="-mr-2 text-xl">
-                <IoIosArrowRoundBack />
-              </span>
-              <span className="pl-3 text-sm">Đăng nhập</span>
-            </div>
-          </button>
+          <RefreshToken Token={refreshToken} />
+          <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
         </Popsup>
       )}
       <div className="flex h-screen w-full flex-col items-start justify-center pt-56 lg:flex-row">
