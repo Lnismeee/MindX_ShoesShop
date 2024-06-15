@@ -70,18 +70,40 @@ export const getUserInfo = createAsyncThunk(
   },
 );
 
+export const getOrderHistory = createAsyncThunk(
+  "getOrderHistory",
+  async (values, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        "https://ss3-services.onrender.com/mindx_ss3_2/universal/getOrdersHistory",
+        {
+          headers: {
+            Authorization: `Bearer ${values}`,
+          },
+        },
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error.response.data);
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
 const isLoggedInSlice = createSlice({
   name: "isLoggedIn",
   initialState: {
     isLoggedIn: false, // this is for checking if the user is logged in then it will change the icon of the login Navlink
     signUpStatus: "", // this is for checking if the user is signing up to render the loading screen
     signInStatus: "", // this is for checking if the user is signing in (when tokenizing) to render the loading screen
+    getOrderHistoryStatus: "", // this is for checking if the user is getting order history to render the loading screen
     userId: "",
     username: "",
     email: "",
     phone_number: "",
     accessToken: "",
     refreshToken: "",
+    orderHistory: [],
   },
   reducers: {
     checkLoggedIn: (state, action) => {
@@ -167,6 +189,19 @@ const isLoggedInSlice = createSlice({
       state.signInStatus = "refresh token successfully!";
       state.accessToken = action.payload;
       console.log(state.accessToken);
+    });
+
+    // this is for getting order history
+    builder.addCase(getOrderHistory.fulfilled, (state, action) => {
+      state.orderHistory = action.payload;
+      state.getOrderHistoryStatus = "success";
+      console.log("Get order history successfully!");
+    });
+    builder.addCase(getOrderHistory.pending, (state) => {
+      console.log("Get order history pending!");
+    });
+    builder.addCase(getOrderHistory.rejected, (state) => {
+      console.log("Get order history failed!");
     });
   },
 });
