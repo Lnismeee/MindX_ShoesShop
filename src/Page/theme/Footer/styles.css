@@ -11,6 +11,7 @@
   background-image: url("https://bizweb.dktcdn.net/100/493/370/themes/940719/assets/footers2_background.jpg?1713464283843");
   object-fit: contain;
   max-width: 100%;
+  bottom: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 

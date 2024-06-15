@@ -28,7 +28,7 @@ function App() {
   }, [accessToken, dispatch]);
 
   return (
-    <>
+    <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -44,7 +44,7 @@ function App() {
       </Routes>
       <Example1/>
       <Footer />
-    </>
+    </div>
   );
 }
 
