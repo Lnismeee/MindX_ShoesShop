@@ -8,11 +8,9 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import CheckoutForm from "../../Components/CheckoutForm";
 import Popsup from "../../Components/Popsup";
 import ReactLoading from "react-loading";
-import RefreshToken from "../../Components/RefreshToken";
 
 export default function Checkout() {
   const loginState = useSelector((state) => state.isLoggedIn.isLoggedIn);
-  const refreshToken = useSelector((state) => state.isLoggedIn.refreshToken);
   const cart = useSelector((state) => state.cartChecker.cart);
   const orderStatus = useSelector((state) => state.cartChecker.status);
   const products = useSelector((state) => state.products.products);
@@ -112,7 +110,6 @@ export default function Checkout() {
           <p className="mb-2 text-center text-xl text-gray-500 font-light">
             Đang xác thực lại phiên đăng nhập
           </p>
-          <RefreshToken Token={refreshToken} />
           <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
         </Popsup>
       )}
