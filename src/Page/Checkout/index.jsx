@@ -97,10 +97,31 @@ export default function Checkout() {
             className="rounded bg-orange-500 p-2 text-white hover:bg-orange-700"
           >
             <div className="flex flex-row items-center justify-between gap-3 divide-x-2 divide-white divide-opacity-10">
-              <span className="text-xl -mr-2">
+              <span className="-mr-2 text-xl">
                 <IoIosArrowRoundBack />
               </span>
-              <span className="text-sm pl-3">Tiếp tục mua hàng</span>
+              <span className="pl-3 text-sm">Tiếp tục mua hàng</span>
+            </div>
+          </button>
+        </Popsup>
+      )}
+      {orderStatus === "jwt expired" && (
+        <Popsup>
+          <p className="mb-2 text-center text-xl font-light">
+            Đã hết phiên đăng nhập, vui lòng đăng nhập lại
+          </p>
+          <button
+            onClick={() => {
+              dispatch(setOrderStatus("idle"));
+              navigate("/login");
+            }}
+            className="rounded bg-orange-500 p-2 text-white hover:bg-orange-700"
+          >
+            <div className="flex flex-row items-center justify-between gap-3 divide-x-2 divide-white divide-opacity-10">
+              <span className="-mr-2 text-xl">
+                <IoIosArrowRoundBack />
+              </span>
+              <span className="pl-3 text-sm">Đăng nhập</span>
             </div>
           </button>
         </Popsup>
