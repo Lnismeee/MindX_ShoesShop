@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const orderProduct = createAsyncThunk(
   "cart/orderProduct",
-  async (values) => {
+  async (values, { rejectWithValue }) => {
     try {
       console.log(values);
       const body = {
@@ -23,10 +23,13 @@ export const orderProduct = createAsyncThunk(
           },
         },
       );
-
+      if (response.status === 400) {
+        console.log("Order failed!");
+      }
       return response.data;
     } catch (error) {
-      console.log(error.response.data);
+      console.log(`Error: ${error.response.data}`);
+      return rejectWithValue(error.response.data);
     }
   },
 );
@@ -87,9 +90,11 @@ const cartChecker = createSlice({
       .addCase(orderProduct.fulfilled, (state, action) => {
         state.status = "success";
         state.cart = [];
+        console.log("Ordered successfully!");
       })
-      .addCase(orderProduct.rejected, (state) => {
-        state.status = "failed";
+      .addCase(orderProduct.rejected, (state, action) => {
+        state.status = action.payload;
+        console.log(`order status: ${state.status}`);
       });
   },
 });
