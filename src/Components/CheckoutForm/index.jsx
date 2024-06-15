@@ -1,11 +1,14 @@
 import React from "react";
 import { orderProduct } from "../../Store/cartChecker";
+import { refreshToken as refreshApi } from "../../Store/isLoggedInSlice";
 import { useSelector, useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export default function CheckoutForm() {
-  const userId = useSelector((state) => state.isLoggedIn.userId);
+  // const userId = useSelector((state) => state.isLoggedIn.userId);
+  const accessToken = useSelector((state) => state.isLoggedIn.accessToken) || localStorage.getItem("accessToken");
+  const refreshToken = useSelector((state) => state.isLoggedIn.refreshToken)
   const cart = useSelector((state) => state.cartChecker.cart);
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
@@ -23,6 +26,34 @@ export default function CheckoutForm() {
 
   const dispatch = useDispatch();
 
+  const valueDispatching = async (values) => {
+    try {
+      const response = await dispatch(orderProduct(values));
+      console.log(response);
+      if (response.payload === "jwt expired") {
+        const refreshTokenResponse = await dispatch(refreshApi(refreshToken));
+        console.log(refreshTokenResponse);
+        console.log("refreshing token...");
+        if (refreshTokenResponse.payload === "jwt expired") {
+          console.log("Order failed!");
+        } else {
+          const newAccessToken = refreshTokenResponse.payload;
+          const newValues = { ...values, accessToken: newAccessToken };
+          const newResponse = await dispatch(orderProduct(newValues));
+          if (newResponse.payload === "jwt expired") {
+            console.log("Order failed!");
+          } else {
+            console.log("Order successful!");
+          }
+        }
+      } else {
+        console.log("Order failed!");
+      }
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  };
+
   return (
     <div className="flex h-full w-full flex-col items-start">
       <h1 className="mb-3 text-3xl font-bold">Checkout</h1>
@@ -31,15 +62,16 @@ export default function CheckoutForm() {
         initialValues={{ name: username, email: email, phone_number: phone_number, address: "" }}
         validationSchema={checkoutSchema}
         onSubmit={(values) => {
-          const orderingSubmission = {
-            userId: userId,
+          const value = {
+            // userId: userId,
+            accessToken: accessToken,
             name: values.name,
             email: values.email,
             phone: values.phone_number,
             address: values.address,
             items: cart,
           };
-          dispatch(orderProduct(orderingSubmission));
+          valueDispatching(value);
         }}
       >
         <Form className="flex h-full w-full flex-col justify-between gap-3">
