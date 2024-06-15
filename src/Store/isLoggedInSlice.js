@@ -28,23 +28,26 @@ export const tokenize = createAsyncThunk("tokenize", async (values) => {
   }
 });
 
-export const refreshToken = createAsyncThunk("refreshToken", async (values, {rejectWithValue}) => {
-  try {
-    const value = {
-      headers: {
-        Authorization: `Bearer ${values}`,
-      },
-    };
-    const response = await axios.get(
-      "https://ss3-services.onrender.com/mindx_ss3_2/user/refreshToken",
-      value,
-    );
-    return response.data;
-  } catch (error) {
-    console.log(error.response.data);
-    return rejectWithValue(error.response.data);
-  }
-});
+export const refreshToken = createAsyncThunk(
+  "refreshToken",
+  async (values, { rejectWithValue }) => {
+    try {
+      const value = {
+        headers: {
+          Authorization: `Bearer ${values}`,
+        },
+      };
+      const response = await axios.get(
+        "https://ss3-services.onrender.com/mindx_ss3_2/user/refreshToken",
+        value,
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error.response.data);
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
 export const getUserInfo = createAsyncThunk(
   "getUserInfo",
@@ -156,6 +159,13 @@ const isLoggedInSlice = createSlice({
         state.signInStatus = "failed";
       }
       console.log("get user's info failed!");
+    });
+
+    // this is for refreshing token
+    builder.addCase(refreshToken.fulfilled, (state, action) => {
+      console.log("Refresh token successfully!");
+      state.accessToken = action.payload;
+      console.log(state.accessToken);
     });
   },
 });
