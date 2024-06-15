@@ -8,6 +8,8 @@ import Card from "../../Components/Card/Card";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
+import ScrollToTop from "../../Components/ScrollToTop";
+
 export default function Product_detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -118,7 +120,8 @@ export default function Product_detail() {
       console.log(status);
     }, [dispatch, products]);
     return (
-      <div className="mb-30">
+      <div className="h-screen mb-96">
+        <ScrollToTop id={id}/>
         <div
           className="flex h-96 w-full flex-col items-start justify-between bg-cover bg-no-repeat object-cover object-center px-14 py-36"
           style={{

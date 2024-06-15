@@ -15,7 +15,7 @@ export default function Login() {
       dispatch(getUserInfo(localStorage.getItem("accessToken")));
       navigate("/login/user");
     }
-  }, [loginState, navigate]);
+  }, [loginState]);
 
   if (loginState == false) {
     return (

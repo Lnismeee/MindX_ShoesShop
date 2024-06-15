@@ -114,7 +114,7 @@ const Header_right = () => {
           <CiLogin className="text-2xl" />
         )}
       </NavLink>
-      <CiHeart className="text-2xl" />
+      {/* <CiHeart className="text-2xl" /> */}
       <NavLink to="/cart">
         {cart.length > 0 ? (
           <MdShoppingCartCheckout className="text-2xl" />

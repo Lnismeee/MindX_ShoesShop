@@ -2,14 +2,21 @@ import React from "react";
 import { IoMdArrowBack } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setOrderStatus } from "../../Store/cartChecker";
+import { IoBagCheckOutline } from "react-icons/io5";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import CheckoutForm from "../../Components/CheckoutForm";
+import Popsup from "../../Components/Popsup";
+import ReactLoading from "react-loading";
 
 export default function Checkout() {
   const loginState = useSelector((state) => state.isLoggedIn.isLoggedIn);
   const cart = useSelector((state) => state.cartChecker.cart);
+  const orderStatus = useSelector((state) => state.cartChecker.status);
   const products = useSelector((state) => state.products.products);
   const [totalPrice, setTotalPrice] = React.useState(0);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (!loginState) {
@@ -65,11 +72,48 @@ export default function Checkout() {
     });
   };
   /*------------------------------------------------------------------------------------------------*/
-  
-  
+
   return (
-    <div className="py-56">
-      <div className="flex h-fit w-full flex-col items-start justify-center lg:flex-row">
+    <div className="">
+      {orderStatus === "loading" && (
+        <Popsup>
+          <p className="mb-2 text-center text-xl font-light">
+            Chờ xíu nhé, hệ thống đang xử lý đơn hàng của bạn
+          </p>
+          <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
+        </Popsup>
+      )}
+      {orderStatus === "success" && (
+        <Popsup>
+          <p className="mb-2 text-center text-xl font-light">
+            Đặt hàng thành công
+          </p>
+          <IoBagCheckOutline className="mx-auto -mt-3 text-6xl text-gray-400" />
+          <button
+            onClick={() => {
+              dispatch(setOrderStatus("idle"));
+              navigate("/products");
+            }}
+            className="rounded bg-orange-500 p-2 text-white hover:bg-orange-700"
+          >
+            <div className="flex flex-row items-center justify-between gap-3 divide-x-2 divide-white divide-opacity-10">
+              <span className="-mr-2 text-xl">
+                <IoIosArrowRoundBack />
+              </span>
+              <span className="pl-3 text-sm">Tiếp tục mua hàng</span>
+            </div>
+          </button>
+        </Popsup>
+      )}
+      {orderStatus === "jwt expired" && (
+        <Popsup>
+          <p className="mb-2 text-center text-xl text-gray-500 font-light">
+            Đang xác thực lại phiên đăng nhập
+          </p>
+          <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
+        </Popsup>
+      )}
+      <div className="flex h-screen w-full flex-col items-start justify-center pt-56 lg:flex-row">
         <div className="flex w-1/2 flex-col items-end">
           <div className="mb-3 flex h-96 w-full flex-col divide-y-2 overflow-scroll rounded-md border-2 px-5 py-3">
             {renderCart()}
