@@ -17,9 +17,9 @@ const Header_right = () => {
   const dispatch = useDispatch();
   const [findInput, setFindInput] = useState("");
   const navigate = useNavigate();
-  
+
   // LN works--------------------------------------------------------------
-  
+
   const [checkbokmenu, setCheckboxmenu] = useState(false);
   const closemenu = () => {
     setCheckboxmenu(!checkbokmenu);
@@ -29,8 +29,6 @@ const Header_right = () => {
   };
   //-----------------------------------------------------------------------
 
-  
-  
   /**--------------------------------------------
    *               functions
    *---------------------------------------------**/
@@ -48,7 +46,7 @@ const Header_right = () => {
   // render result
   const renderResult = () => {
     return (
-      <div className="absolute z-10 max-h-96 xl:w-96 w-80 -translate-x-24 translate-y-16 divide-y-2 divide-gray-100 overflow-scroll rounded-lg border-2 border-orange-400 bg-white p-4 shadow-lg">
+      <div className="absolute z-10 max-h-96 w-80 lg:-translate-x-24 translate-y-16 divide-y-2 divide-gray-100 overflow-scroll rounded-lg border-2 border-orange-400 bg-white p-4 shadow-lg xl:w-96">
         {findingStatus === "loading" ? (
           <div className="py-10">
             <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
@@ -60,7 +58,7 @@ const Header_right = () => {
             return (
               <div
                 key={product._id}
-                className="flex flex-row items-center justify-between gap-5 p-4 hover:bg-slate-100 cursor-pointer"
+                className="flex cursor-pointer flex-row items-center justify-between gap-5 p-4 hover:bg-slate-100"
                 onClick={() => {
                   setFindInput("");
                   navigate(`/products/${product._id}`);
@@ -90,17 +88,17 @@ const Header_right = () => {
   /*------------------------------------------------------------------------*/
 
   return (
-    <div className="flex flex-row justify-between items-center gap-4 md:gap-10">
-      <div className="flex flex-col border-gray-500 border-opacity-30 border-2 py-2 px-3 md:px-5 rounded-xl w-full md:w-auto">
+    <div className="flex w-full flex-row items-center justify-between gap-4 px-8 md:gap-10 lg:w-fit">
+      <div className="flex w-full flex-col rounded-xl border-2 border-gray-500 border-opacity-30 px-3 py-2 md:w-auto md:px-5">
         <div className="flex items-center">
-        <IoSearchSharp className="text-xl text-gray-600 mr-3" />
-        <input
-          type="text"
-          value={findInput}
-          onChange={handleChange}
-          className="mr-5 rounded-lg p-1 focus:outline-none"
-          placeholder="Tìm kiếm"
-        />
+          <IoSearchSharp className="mr-3 text-xl text-gray-600" />
+          <input
+            type="text"
+            value={findInput}
+            onChange={handleChange}
+            className="mr-5 rounded-lg p-1 focus:outline-none"
+            placeholder="Tìm kiếm"
+          />
         </div>
         {findInput && renderResult()}
       </div>
