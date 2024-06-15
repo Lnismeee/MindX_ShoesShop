@@ -31,6 +31,11 @@ export default function UserPage() {
   };
 
   useEffect(() => {
+    // scroll to top
+    window.scrollTo(0, 0);
+  }, [switchProfile]);
+
+  useEffect(() => {
     if (loginState === false || loginState === null) {
       navigate("/login");
       // dispatch(getUserInfo(accessToken));
