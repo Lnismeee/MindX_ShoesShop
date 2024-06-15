@@ -2,6 +2,7 @@ import React from "react";
 import Popsup from "../../Components/Popsup";
 import { Logout } from "../../Store/isLoggedInSlice";
 import { getUserInfo } from "../../Store/isLoggedInSlice";
+import { getOrderHistory } from "../../Store/isLoggedInSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -21,6 +22,7 @@ export default function UserPage() {
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
   const phone_number = useSelector((state) => state.isLoggedIn.phone_number);
+  const orderHistory = useSelector((state) => state.isLoggedIn.orderHistory);
   const [switchProfile, setSwitchProfile] = React.useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -50,7 +52,10 @@ export default function UserPage() {
 
   useEffect(() => {
     dispatch(getUserInfo(accessToken));
+    dispatch(getOrderHistory(accessToken));
   }, [accessToken]);
+
+  console.log("Order history: ", orderHistory);
 
   return (
     <div className="relative h-screen w-screen">
@@ -64,7 +69,7 @@ export default function UserPage() {
         </Popsup>
       )}
       <div className="flex h-screen w-screen items-center pt-8">
-        <div className="flex h-4/5 w-full translate-y-6 flex-row gap-4 px-10">
+        <div className="flex h-4/5 w-full translate-y-6 flex-row gap-4 px-16">
           <div className="flex w-1/4 flex-col items-start justify-start gap-4 rounded-lg border-2 border-gray-300 border-opacity-20 bg-gray-100 p-5 shadow-md">
             <img
               src="https://picsum.photos/200"
@@ -126,7 +131,7 @@ export default function UserPage() {
 
           {/* order history box */}
           <div className="h-full w-full overflow-scroll rounded-md border-2 px-4">
-            {switchProfile ? <OrderHistory /> : <FavouriteList />}
+            {switchProfile ? <OrderHistory data={orderHistory} /> : <FavouriteList />}
           </div>
         </div>
       </div>
