@@ -10,11 +10,13 @@ import { MdHistory } from "react-icons/md";
 import FavouriteList from "../../Components/favouriteList";
 import { CiHeart } from "react-icons/ci";
 import ReactLoading from "react-loading";
+import RefreshToken from "../../Components/RefreshToken";
 
 export default function UserPage() {
   const loginState = useSelector((state) => state.isLoggedIn.isLoggedIn);
   const signInStatus = useSelector((state) => state.isLoggedIn.signInStatus);
   const accessToken = useSelector((state) => state.isLoggedIn.accessToken);
+  const refreshToken = useSelector((state) => state.isLoggedIn.refreshToken);
   const userId = useSelector((state) => state.isLoggedIn.userId);
   const username = useSelector((state) => state.isLoggedIn.username);
   const email = useSelector((state) => state.isLoggedIn.email);
@@ -53,6 +55,7 @@ export default function UserPage() {
             Your session has expired, we are helping you login again
           </h1>
           <ReactLoading type={"spin"} color={"#fc531b"} className="mx-auto" />
+          <RefreshToken Token={refreshToken}/>
         </Popsup>
       )}
       <div className="flex h-screen w-screen items-center pt-8">
