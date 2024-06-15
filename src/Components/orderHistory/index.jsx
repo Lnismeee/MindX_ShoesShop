@@ -1,38 +1,44 @@
 import React from "react";
-import datajson from "./data.json";
-import { useSelector } from "react-redux";
+// import datajson from "./data.json";
+// import { fetchProducts } from "../../Store/products_slice";
+import { useSelector, useDispatch } from "react-redux";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
 export default function OrderHistory({ data }) {
   const [orderHistory, setOrderHistory] = React.useState([]);
+  const [popUp, setPopUp] = React.useState(false);
+  const [orderDetailId, setOrderDetailId] = React.useState(null);
+  // const [productsDetailData, setProductsDetailData] = React.useState([]); 
   const orderHistoryStatus = useSelector(
     (state) => state.isLoggedIn.getOrderHistoryStatus,
   );
-  const [popUp, setPopUp] = React.useState(false);
-  const [orderDetailId, setOrderDetailId] = React.useState(null);
-
+  // const products = useSelector((state) => state.products.products);
+  // const dispatch = useDispatch();
+  
   React.useEffect(() => {
     if (data) setOrderHistory(data);
     console.log(data);
   }, [data]);
-
+  
+  // React.useEffect(() => {
+  //   console.log("fetching products...");
+  //   dispatch(fetchProducts());
+  //   console.log(products);
+  // }, []);
+  
+  
   function renderOrderHistoryList() {
     return orderHistory.map((order, index) => {
       return (
         <div
           key={index}
-          className="flex flex-row items-center justify-between px-3 py-8"
+          className="flex flex-row items-center justify-between px-3 py-8 hover:bg-slate-300"
+          onClick={() => {
+            setOrderDetailId(order._id);
+            setPopUp(true);
+          }}
         >
           <span>Order ID: {order._id}</span>
-          <span
-            onClick={() => {
-              setOrderDetailId(order._id);
-              setPopUp(true);
-            }}
-            className="cursor-pointer"
-          >
-            Detail
-          </span>
         </div>
       );
     });
@@ -40,6 +46,11 @@ export default function OrderHistory({ data }) {
 
   const renderOrderDetail = () => {
     const orderDetail = orderHistory.find((order) => order._id === orderDetailId);
+    // const productMap = products.reduce((acc, product) => {
+    //   acc[product._id] = product;
+    //   return acc;
+    // }, {});
+    // console.log(productMap);
     if (!orderDetail) {
       return null;
     }
