@@ -10,7 +10,7 @@ export const register = createAsyncThunk("register", async (values) => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data);
   }
 });
 
@@ -25,6 +25,18 @@ export const tokenize = createAsyncThunk("tokenize", async (values) => {
   } catch (error) {
     console.log(error.response);
     return error.response.data;
+  }
+});
+
+export const refreshToken = createAsyncThunk("refreshToken", async (values) => {
+  try {
+    const response = await axios.get(
+      "https://ss3-services.onrender.com/mindx_ss3_2/user/refreshToken",
+      values,
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data);
   }
 });
 
