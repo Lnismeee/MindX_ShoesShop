@@ -164,6 +164,7 @@ const isLoggedInSlice = createSlice({
     // this is for refreshing token
     builder.addCase(refreshToken.fulfilled, (state, action) => {
       console.log("Refresh token successfully!");
+      state.signInStatus = "refresh token successfully!";
       state.accessToken = action.payload;
       console.log(state.accessToken);
     });
